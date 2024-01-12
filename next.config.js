@@ -1,6 +1,14 @@
-const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx',
-})
+// next.config.js
+const path = require('path')
+const withNextra = require('nextra')('nextra-theme-docs', './theme.config.tsx')
+module.exports = withNextra({
+    i18n: {
+        locales: ['en', 'zh', 'de'],
+        defaultLocale: 'en',
+        localeDetection: false,
 
-module.exports = withNextra()
+    },
+    sassOptions: {
+        includePaths: [path.join(__dirname, 'styles')],
+    },
+})

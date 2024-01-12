@@ -1,0 +1,25 @@
+{
+
+    "index": "Introduction",
+    "another": "Another Page",
+    "advanced": "Advanced (A Folder)",
+    "---": {
+        "type": "separator"
+    },
+    "django": {
+        "title": "Django Tutorial"
+    },
+
+
+    "about": {
+        "title": "About Us",
+        "type": "page"
+    },
+
+    "contact": {
+        "title": "Contact ↗",
+        "type": "page",
+        "href": "https://twitter.com/shuding_",
+        "newWindow": true
+    }
+}

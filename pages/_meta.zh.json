@@ -1,0 +1,18 @@
+{
+    "index": "介绍",
+    "another": "页面",
+    "advanced": "高级 (A Folder)",
+    "django": "Django教程",
+
+    "about": {
+        "title": "关于我们",
+        "type": "page"
+    },
+
+    "contact": {
+        "title": "联系 ↗",
+        "type": "page",
+        "href": "https://twitter.com/shuding_",
+        "newWindow": true
+    }
+}

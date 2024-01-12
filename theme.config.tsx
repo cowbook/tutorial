@@ -2,6 +2,9 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
+
+
+
   logo: <span>Tutorial of Uncle Cow</span>,
   project: {
     link: 'https://github.com/shuding/nextra-docs-template',
@@ -13,6 +16,13 @@ const config: DocsThemeConfig = {
   footer: {
     text: 'Nextra Docs Template',
   },
+
+  i18n: [
+    { locale: 'en', text: 'English' },
+    { locale: 'zh', text: '中文' }
+  ],
+ 
+
 }
 
 export default config

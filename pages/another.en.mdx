@@ -6,6 +6,18 @@ let a = 1;
 console.log(a);
 ```
 
+import Link from 'next/link'
+ 
+export const Button = (props) =>{
+  return (
+    <Link href="/another" locale="zh">
+      To /zh/another
+    </Link>
+  )
+}
+
+<Button/>
+
 ## Component
 
 import { useState } from 'react'
