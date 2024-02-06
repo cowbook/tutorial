@@ -1,166 +1,144 @@
-# 创建 a Python3 + Django Development Environment on Windows 11
+# 从0搭建Python3+Django开发环境-Win11
 
-Django is an integrated framework for web development using Python, offering convenience in creating and developing integrated web services. It inherently provides a web server (including Http, Https, WebSocket), static files, front-end HTML templates, database object models, data querying (QuerySet), and more. It allows database use without learning SQL and generates a backend admin site based on your models.
+本教程引导您从新安装的Win11系统开始，逐步演示如何搭建Python+Django开发环境，如果您只是要进行Python3的开发和学习，不需要制作网页，可以只看前半篇。
+Django是基于Python用于开发的Web网站的一体化框架，可以非常方便的用来制作和开发Web一体化的网站服务，本身就具有Web服务器（包括Http、Https、WebSocket）、静态文件、HTML的前端模板、数据库对象模型(Object Model)、查询数据（QuerySet)等等功能。使用它无需学习SQL语言就可以使用数据库，并且它会根据您的模型自动生成后台管理数据库的网站，非常滴方便。
+既然是开发环境，我们选择IDE就以免费、好入门、方便快捷为主，本文以Visual Studio Code为例来进行开发，使用Vs Code还有额外的好外，就是提供对前端React、Vue、TS、JS等有着非常好友的支持。
+完成Django开发环境的搭建主要分为如下3个步骤。 安装开发环境、配置Python和虚拟环境、运行Django。
 
-Considering it's a development environment, our choice of IDE focuses on being free, beginner-friendly, and efficient. We use Visual Studio Code (VsCode), which also provides excellent support for front-end technologies like React, Vue, TS, and JS.
+> PS:作者习惯在MacOS上开发，使用的Win11均是虚拟机上的干净系统。
 
-Setting up the Django development environment mainly involves 4 steps: installing the development environment, configuring Python, configuring the virtual environment, and running Django.
+# 1、安装VS Code
+首先，直接安装开发工具IDE，安装VS Code，有些教程首先安装Python，其实无论什么顺序都可以达成目的。我们考虑到用户为初学者，通过在VS Code的智能提示下完成Python环境的安装，可能对初学者更加友好。
+打开网站小牛书，可以方便下载最新的VS Code，网站上也有Python安装的教程， 网址如下：
 
-PS: The author prefers developing on MacOS and uses a clean system on Win11 VM for demonstrations.
-
-## **1.Installing VSCode**
-
-Let us start by installing VSCode. You can download the latest version conveniently from the Microsoft's website, which also provides a Python installation guide. When installing, select all the recommended configuration options for convenience.
-
-### 1) Installing VsCode
-
-[https://code.visualstudio.com/Download](https://code.visualstudio.com/Download)
-
-![1704013235217](./image/1.startup/1704013235217.png)
-
-Click Windows on the left to download the installation package
-
-Or open Microsoft Store to install VS code .
-
-![1704080301724](./image/1.startup/1704080301724.png)
-
-### 2) create an test.py file
-
-Click "Open Folder" button and create an folder called "projects"
-
-![1704156765986](./image/1.startup/1704156765986.png)
-
-Then, It returns to the VSCode main interface, as following we create a file named test.py.
-
-![1704157015929](./image/1.startup/1704157015929.png)
-
-After that, we write some lines of code to print something using python.
-
-![1704157107942](./image/1.startup/1704157107942.png)
-
-## **2. Configuring Python**
-
-Begin by installing Python. We created a directory named 'projects' and add a 'test.py' file. VSCode will prompt you to install Python upon detecting the .py file. After installing Python, write a test statement and select the interpreter from the lower right corner. If the interpreter isn't found, it prompts you to install Python, preferably the latest version 3.11, from the Microsoft Store.
-
-### 1) Install python extension
-
-![1704157608176](./image/1.startup/1704157608176.png)
-
-Then, let us back to the file, and you can click "interpreter" right-bottom to select an python interpreter and if your vscode do not have it  the python extension will guide you install python interpreter through lauching Microsoft Store.
-
-Or you can install python outside VScode from  Microsoft Store directly.
-
-### 2) Install python interpreter
-
-![1704159355737](./image/1.startup/1704159355737.png)
-
-VsCode will open Microsoft Store to let you install python
-
-![1704159613630](./image/1.startup/1704159613630.png)
-
-After installing Python 3.x interpreter and runtime, you can press PLAY button to run python file which you are editing in VS Code.
-
-![1704163830216](./image/1.startup/1704163830216.png)
-
-## **3. Virtual Environment**
-
-Given the versioning issues in the open-source world, it's crucial to define third-party component versions your software depends on. Create a virtual environment named **env** in your 'projects' directory, containing a separate Python interpreter and third-party components for your project. After creating the environment, switch to it and resolve any permission issues that might prevent scripts from running.
-
-From this step, we are going to type some commands in VsCode's TERMINAL window, it is ok if you use these commands outside VsCode but in a window's PoweShell Terminal.
-
-### 1)create a virtual environment called env
-
-we type following commands to create a  virtual environment called **env** which can be any name you like.
-
-```
-python -m venv env
-```
-
-![1704164146503](./image/1.startup/1704164146503.png)
-
-### 2)Using the virtual environment
-
-As following, we click the right bottom area to select the ENV environment.
-
-![1704168889412](./image/1.startup/1704168889412.png)
+小牛叔
+​www.xiaoniushu.com
 
 
-We run the test.py file and find out the runtime path has changed to ./env folder
-
-![1704186920246](./image/1.startup/1704186920246.png)
-
-VS Terminal need be reloaded, if a warning shows like following
-
-![1704187964838](./image/1.startup/1704187964838.png)
+下载VS Code
+一路下一步就可以了，为了方便，在哪下的配置里，可以都勾选上：
 
 
-## **4. Installing and Configuring Django**
+都勾选上
+2、配置Python
+首先安装Python，创建目录test，然后在下面新建test.py文件，所有的Python的文件都是以.py结尾，VS Code就可以感智并且提示我们安装Python。
 
-We will install Django in the ./env environment using pip, create a Django project named 'artter'. After setting up, configure the database and create a superuser for backend management. Then, modify the 'ALLOWED_HOSTS' in the settings.py to launch a test server and view the default Django site. Append '/admin' to the URL to access the Django admin site.
+1) 点击下面打开目录：
 
-### 1) installing django
+打开目录
+2) 新建并打开目录
 
-```
+新建并打开新建的目录
+3）新建.py文件，并且打开, 点击右下角安装Python组件
+
+系统检测到.py文件，会让你安装Python有关的组件。点右下角的Install。
+
+4）或是点左边栏的“组件”，自己输入python也可以。
+
+安装组件
+5） 安装Python解释器
+安装好了重启VS Code，并且如下图，写一行测试语句，点击右下角选择解释器：
+
+
+在上面的解释器列表中，我们没找到，因为还没有安装，点下图就会弹出安装Python的
+
+
+解释器安装
+
+安装Python
+如果没有跳出安装界面，可以通过微软的应用商店来安装Python，这里使用的是3.11最新版本。
+
+安装后最好重启一下计算机：
+
+
+6) 测试语句
+这个时候点右边的那个小键头，运行本文件，就会弹出让你选解释器，你选择好就会弹出下面的运行结果。
+
+
+运行程序
+恭喜你，现在可以运行Python原生的语句了，为了更好的运行Django有关的组件，我们还需要创建一个虚拟环境。
+
+3、虚拟环境
+开源世界的版本问题是无解的，Python有大量的第三方组件，这些第三方组件互相配合会产生大量问题，比如Django的早期版本就不兼容MySQL某个连接组件，如果您开发的软件如果想寿命长点，必须规定好依赖的第三方组件的版本，不然可能某个组件一升级，你软件就挂了。
+
+解决方案就是为同时期正在开发的软件搞出一套环境，虚拟环境搭建如下。
+
+打开Vs Code，如果可能使用管理员权限打开，这样会减少很多配置问题。
+
+1）创建虚拟环境
+在VS Code的TERMINAL窗口，我们在当前test目录下创建.venv的独立的Python环境，包括解释器与未来独立安装的第三方组件。
+
+python -m venv .venv
+
+创建环境
+
+2)切换环境
+如上图创建完毕后，系统会提示您是否使用这个环境，您可以直接点击Yes切换到这个环境。
+
+
+3)权限问题
+我们直接点击运行，发现出错了，因为虚拟环境需要脚本，可能目前Windows 11 的环境禁止了脚本。
+
+
+运行出错
+我们打开PowerShell窗口运行如下的命令打开脚本的权限：
+
+set-ExecutionPolicy RemoteSigned
+
+打开脚本运行权限
+
+运行正确
+上图Terminal窗口当中，命令行前面绿色的部分，就表示是.venv虚拟环境，经过重新运行程序，发现可以正确执行！
+
+4、安装配置Django
+1) 安装Django
+在VS Code的Terminal窗口，在.venv环境下，使用如下的命令行安装django，如果成功后就使用第二行创建项目，本项目名称为artter
+
 python -m pip install django
-```
-
-![1704187398914](./image/1.startup/1704187398914.png)
-
-### 2) create a django project
-
-"artter" following is the name of project , you can name it anything you want
-
-```
 django-admin startproject artter
 
-```
+创建django项目
+创建后你就会看到目录中出现artter目录，这个创建的目录有如下的内容：
 
-![1704197648960](./image/1.startup/1704197648960.png)
 
+项目文件
+如上图其中db.sqlite3是数据库，settings.py是设置文件，urls.py是路由，asgi.py和wsgi.py是网关应用文件，manage.py是管理中心。
 
-### 3) migrate and createuser
+2)配置Django
+刚才创建了项目，现在要升级配置数据库，如下图，同样在VS的Terminal窗口的artter项目目录里：
 
-use these commands to complete the task of migration and user creating. we name the superuser "admin" which can be any word you like.
-
-```bash
 cd artter
 python -m manage migrate
+
+更新数据库
+然后我们要创建一个可以登录后台的管理员admin，同样在VS的Terminal窗口的artter项目目录里。
+
 python -m manage createsuperuser --username admin
-```
 
-![1704197812260](./image/1.startup/1704197812260.png)
+创建管理员
+系统会询问邮件与密码，我们可以把admin用户的密码设置成123456
 
-After you enter createuser command,  Command line will ask you some questions as following:
-
-![1704198150873](./image/1.startup/1704198150873.png)
-
+3）运行测试服务器
+下面我们打开settings.py文件，如下图把其中的允许域名的设置改成['*']
 
 
-### 4) run development server
+使用如下的命令启动测试服务器：
 
-Till now, we do not write down a single line of code but a  backend  site has been built.
-
-Also, "runserver" is the command that can start your develpment server. Any Internet Brower (eg. Edge, Chorme ) 
-
-```
 python -m manage runserver
-```
 
-![1704198211393](./image/1.startup/1704198211393.png)
-
-You will see the following pages:
-
-![1704198656872](./image/1.startup/1704198656872.png)
-
-If you add url /admin after the host,  an admin site entry page will be shown:
-
-![1704198797173](./image/1.startup/1704198797173.png)
+启动Web服务器
+我们打开浏览器看看系统生成的网站是啥样子：
 
 
-Enter your admin & password( on last step you set),you will enter the site:
+默认Django网站
+我们在url网址后加上/admin就可以访问django自动生成的后台管理网站：
 
-![1704198870426](./image/1.startup/1704198870426.png)
 
-## 5. Conclusion
+使用之前的密码登录
 
-In conclusion, you've created an empty project named 'artter,' with a default backend admin site. Now, it's up to you to decide what to build with it, be it a BBS, a Blog or any other type of website?
+
+登录进去后，我们可以看到系统自动创建了2个表为users与groups。
+
+
+默认数据库
+总之，我们在本地创建了空的project名称为：artter，系统还生成了默认的后台管理网站，到现在为止我还没有想到用它来做什么，各位知友可以发挥想象力，看看这个项目是做BBS还是啥。

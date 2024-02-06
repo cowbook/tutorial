@@ -2,3 +2,21 @@ $primary-color: #64ff00;
 :export {
     primaryColor: $primary-color;
 }
+
+.home .nx-leading-7 {
+    line-height: 110%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    h1 {
+        font-size: large;
+        padding-top: 4px;
+        padding-left: 10px;
+    }
+    span {
+        padding-top: 6px;
+        padding-left: 8px;
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "1": {
+        "title": "为什么从Python入门",
+        "theme": {
+            "layout": "full",
+
+            "breadcrumb": true,
+            "footer": true,
+            "sidebar": true,
+            "toc": false,
+            "pagination": false
+        }
+    }
+}

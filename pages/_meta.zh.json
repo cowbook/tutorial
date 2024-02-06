@@ -1,18 +1,29 @@
 {
-    "index": "介绍",
+    "index": {
+        "title": "首页",
+        "display": "hidden",
+        "theme": {
+            "layout": "full",
+            "breadcrumb": true,
+            "footer": true,
+            "sidebar": false,
+            "toc": false,
+            "pagination": false
+        }
+    },
+
     "another": "页面",
     "advanced": "高级 (A Folder)",
     "django": "Django教程",
 
     "about": {
-        "title": "关于我们",
+        "title": "关于牛叔",
         "type": "page"
     },
 
-    "contact": {
-        "title": "联系 ↗",
-        "type": "page",
-        "href": "https://twitter.com/shuding_",
-        "newWindow": true
+
+
+    "py_begin": {
+        "title": "Python趣味入门系列"
     }
 }
