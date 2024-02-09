@@ -20,6 +20,7 @@
     "dependencies": {
         "@headlessui/react": "^1.7.18",
         "@heroicons/react": "^2.1.1",
+        "@vercel/kv": "^1.0.1",
         "flexsearch": "0.7.31",
         "next": "^14.0.4",
         "next-i18next": "^15.2.0",
