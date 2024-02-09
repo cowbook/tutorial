@@ -3,9 +3,9 @@ const path = require('path')
 const withNextra = require('nextra')('nextra-theme-docs', './theme.config.tsx')
 module.exports = withNextra({
     i18n: {
-        locales: ['en', 'zh', 'de'],
+        locales: ['en', 'zh'],
         defaultLocale: 'en',
-        localeDetection: false,
+        localeDetection: false
 
     },
     sassOptions: {
