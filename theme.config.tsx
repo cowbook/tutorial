@@ -57,7 +57,7 @@ const config: DocsThemeConfig = {
     { locale: 'zh', text: '中文' }
   ],
 
-  
+
   docsRepositoryBase: 'https://github.com/cowbook/tutorial',
   footer: {
     text: 'Copyright@ Shanghai ShiShilian Co.',
@@ -69,6 +69,7 @@ const config: DocsThemeConfig = {
       return {
         light: 'Light',
         dark: 'Dark',
+        system: 'Light'
       }
     }
   }
