@@ -1,0 +1,213 @@
+import Link from 'next/link'
+import Image  from 'next/image'
+
+
+<div className="md:flex items-center">
+    <div className="pt-10">
+        ![Hello](../public/images/cowhead1.png)
+    </div>
+
+    <div className="grow home">
+        <div className="m-10 text-6xl leading-loose">
+            # 小牛叔 - 零基础也能快速DIY学会Python编程
+        </div>
+        <div className=" px-10 text-2xl font-extralight">
+            专注于初学者，教您快速入门编程，小牛叔只做看得懂的教程
+        </div>
+    </div>
+</div>
+
+<div className="">
+
+    {/* 3栏文本框 */}  
+
+    <div className="lg:flex lg:justify-between p-10">
+
+        <div className="cursor-pointer hover:scale-110 transition-all mt-10 shadow-xl rounded-2xl px-10 pb-10 border-inherit border-solid border border-slate-100">
+
+            #### 🚀 跟白领小秘Vivien学编程
+            *视频课程 送1v1辅导 包教会* <br/>
+
+            💃 `零基础`职场转码入门视频课程<br/>
+            👶 `3分钟` 即刻入门Python写代码<br/>
+            🎮  `2小周` 掌握爬虫与大数据分析<br/>
+            💹 `1个月` 玩转AI人工智能赚大钱
+
+        </div>
+
+        <div onClick={() => window.location.href = './py_begin/intr00'} className="cursor-pointer hover:scale-110 transition-all mt-10 shadow-xl rounded-2xl lg:px-18 px-10 pb-10 border-inherit border-solid border border-slate-100">
+
+            #### <Link href="./py_youth/intr00" className="">🍿 小牛叔Python趣味入门教程</Link>
+            
+            *免费直观 适合DIY 图文并茂* <br/>
+
+             1️⃣ 为什么0基础入门推荐Python<br/>
+             2️⃣ 妥妥地安装配置Python（Windows版）<br/>
+             3️⃣ 为什么python会那么流行？<br/>
+             4️⃣ 两分钟了解4个重要概念
+
+
+        </div>
+
+        <div onClick={() => window.location.href = '#book'} className="cursor-pointer hover:scale-110 transition-all mt-10 shadow-xl rounded-2xl px-10 pb-10 border-inherit border-solid border border-slate-100">
+
+            ### 🪤 Python青少年趣味编程
+                            *小牛叔撰写正式出版物*
+
+
+            <div className='flex'>
+                <div>
+                
+                    <Image src="/images/book.png" width="90" height="120"  className='mt-8 shadow-xl'/>
+                
+                </div>
+                 - 当当网同类真实5星好评
+                 - 青少年优秀入门书籍
+                 - 知名企业家、教育家推荐
+            </div>
+
+
+        </div>
+    </div>
+
+
+    {/* 内容开始 */}
+
+
+    <div className="lg:flex even:bg-slate-50 mt-20 p-10">
+
+        <div className="basis-1/3 py-10">
+            <Link href="https://www.python.org/" target="_blank" className="text-center">
+                <Image src="/images/pj2.png" width="400" height="343" className='transition-all rounded-2xl  shadow-xl hover:shadow-2xl hover:scale-105'/>
+            </Link>
+        </div>
+
+    
+        <div className="basis-2/3 pl-10">
+
+
+        ## 🎰选择入门语言 Python or JS
+        
+        零基础只有两个选择Python or JS（包括TS），如果今后不是只做`前端开发`, 小牛叔建议首先学会Python，因为：
+        Python是后端、解释型语言，易于学习、使用、扩展和维护。是目前世界上最流行的语言之一，Python几乎应用在除了前端 以外所有领域。
+
+        <div class="mt-10">
+            <Link href="/py_begin/intr00" class="btn-blue-round">详细文章</Link>
+        </div>
+
+        
+
+        </div>
+       
+
+    </div>
+
+
+    <div className="lg:flex even:bg-slate-50 mt-20 p-10">
+    
+        <div className="basis-1/2">
+
+
+        ## Python解释器(官网下载)
+        
+        如果您是零基础，建议您看了入门教程再下载，Python解释器目前稳定版本`3.12`，但是建议初学者下载**版本稍低**的Python，这样会兼容更多的Windows版本，减少安装出错的概率，并且根本不影响快速掌握基本知识点，几乎可以运行所有Python程序。
+
+
+        ### Windows
+
+        - 📥[**推荐**点此下载 Python 3.7.9](https://www.python.org/ftp/python/3.7.9/python-3.7.9.exe)  - *不支持WinXP及以前操作系统*
+
+        - 📥[点此下载 Python 3.12.2](https://www.python.org/ftp/python/3.12.2/python-3.12.2.exe)  - *不支持Win7及以前操作系统*
+
+        ### MacOS
+
+        - [🍎点此下载Python 3.12.2](https://www.python.org/ftp/python/3.12.2/python-3.12.2-macos11.pkg)
+
+        </div>
+        <div className="basis-1/2 py-10 text-right">
+            <Link href="https://www.python.org/" target="_blank" className="text-center">
+                <Image src="/images/py_web.png" width="550" height="343" className='transition-all mt-10 ml-auto mr-0 rounded-2xl  shadow-xl hover:shadow-2xl hover:scale-105'/>
+                Python官方网站
+            </Link>
+        </div>
+
+    </div>
+
+
+    {/* 内容开始 */}  
+    <div className="lg:flex even:bg-slate-50 p-10"  id="book">
+
+
+        <div className="basis-1/3 py-10">
+            <Link href="https://product.dangdang.com/28524470.html" target="_blank" className="">
+                <Image src="/images/book.png" width="250" height="343" className='transition-all mt-10 ml-0 rounded-2xl  shadow-xl hover:shadow-2xl hover:scale-105'/>
+                 点此链接当当信息页
+            </Link>
+        </div>
+
+    
+        <div className="basis-2/3">
+
+
+        ## Python青少年趣味编程
+        
+        这是学习Python编程的入门图书，以传授Python程序设计知识为目的， 以青少年喜爱的奇幻的探险故事为脉络，将Python的知识体系贯穿其中， 通过故事情节串联编程乐趣，涵盖所有Python的常用变量、函数、语句、模块、类和面向对象编程等知识点，最后通过2个大型应用案例升华：绘制时钟动画图案、制作精美贪吃蛇游戏。
+
+        本书是青少年及儿童学习Python编程的绝佳入门书籍，也是父母陪伴孩子一起学习编程的优选图书。
+
+
+        ### 免费资源链接
+
+        - 📥[源码课后习题下载](https://github.com/markzhang716/py_youth)
+        - 📥[B站同步免费视频课程](https://www.bilibili.com/read/readlist/rl793330) 
+        - 小牛叔在QQ群24小时免费解答：1051096460
+
+
+        </div>
+       
+
+    </div>
+
+
+
+    {/* 内容开始 */}  
+    <div className="lg:flex even:bg-slate-50  mt-20 p-10">
+
+
+        <div className="basis-1/2 py-10">
+
+           <Image src="/images/nextra.jpg" width="475" height="252" className='transition-all mt-10 ml-0 rounded-2xl  shadow-xl hover:shadow-2xl hover:scale-105'/>    
+        </div>
+
+    
+        <div className="basis-1/2">
+
+
+        ## 关于本站
+        
+        考虑到前端静态网站的部署成本较低，本站采用`React`技术`Next.js`前端框架，`Nextra`模板的`Docs主题`，并且使用了Vercel部署服务。
+
+
+        ### 技术链接
+
+        - [React官网](https://reactjs.org/)
+        - [Next.js官网](https://nextjs.org/)
+        - [Nextra官网](https://nextra.site/)
+        - [Vercel部署服务](https://vercel.com/)
+
+
+        </div>
+       
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+

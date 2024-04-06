@@ -1,21 +1,212 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
-
-## What is Nextra?
-
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
-
-## Documentation
-
-The documentation is available at [https://nextra.site](https://nextra.site).
-
-
-
-### Hello
-
-
+import Link from 'next/link'
 import Image  from 'next/image'
 
-<Image src="/demo.png" alt="Hello" width={500} height={500} />
+
+<div className="md:flex items-center">
+    <div className="pt-10">
+        ![Hello](../public/images/cowhead1.png)
+    </div>
+
+    <div className="grow home">
+        <div className="m-10 text-6xl leading-loose">
+            # 3F Learning - Fancy, Focused, and Friendly 
+        </div>
+        <div className=" px-10 text-2xl font-extralight">
+            Uncle Cow - Follow me to Python Programming For Beginers
+        </div>
+    </div>
+</div>
+
+<div className="">
+
+    {/* 3栏文本框 */}  
+
+    <div className="lg:flex lg:justify-between p-10">
+
+        <div className="cursor-pointer hover:scale-110 transition-all mt-10 shadow-xl rounded-2xl px-10 pb-10 border-inherit border-solid border border-slate-100">
+
+           #### 🚀 Advanced Course
+            *Chinese Video Course* <br/>
+
+            💃 `0 Basics` No need of Dev Background<br/>
+            👶 `3 minutes` Start to Code <br/>
+            🎮 `2 weeks` Big Data Analysis<br/>
+            💹 `1 month` AI and Expert
+        </div>
+
+        <div onClick={() => window.location.href = './py_begin/intr00'} className="cursor-pointer hover:scale-110 transition-all mt-10 shadow-xl rounded-2xl lg:px-18 px-10 pb-10 border-inherit border-solid border border-slate-100">
+
+            #### <Link href="./py_youth/intr00" className="">🍿 Free Tutorial of Python</Link>
+            
+            *Focus on Beginers* <br/>
+
+             1️⃣ Why Choice Python for You<br/>
+             2️⃣ Setup and Config Python on Windows<br/>
+             3️⃣ Why Python Is So Popular?<br/>
+             4️⃣ 4 Important Concepts
+
+
+        </div>
+
+        <div onClick={() => window.location.href = '#book'} className="cursor-pointer hover:scale-110 transition-all mt-10 shadow-xl rounded-2xl px-10 pb-10 border-inherit border-solid border border-slate-100">
+
+            #### 🪤 Python Programming Fun For Youth
+                            *An Officially Published Chinese Book*
+
+
+            <div className='flex'>
+                <div>
+                
+                    <Image src="/images/book.png" width="90" height="120"  className='mt-8 shadow-xl'/>
+                
+                </div>
+                 - Good rating on DangDang 
+                 - Popular Youth Programming Book
+                 - Celebrities Recommends
+            </div>
+
+
+        </div>
+    </div>
+
+
+    {/* 内容开始 */}
+
+
+    <div className="lg:flex even:bg-slate-50 mt-20 p-10">
+
+        <div className="basis-1/3 py-10">
+            <Link href="https://www.python.org/" target="_blank" className="text-center">
+                <Image src="/images/pj2.png" width="400" height="343" className='transition-all rounded-2xl  shadow-xl hover:shadow-2xl hover:scale-105'/>
+            </Link>
+        </div>
+
+    
+        <div className="basis-2/3 pl-10">
+        # How do beginers chose ? Python or JS
+        
+        There are only two options for starting from scratch: Python or JS (including TS). If you are not just doing front-end development in the future, Uncle Cow recommends learning Python first, because: Python is a back-end, interpreted language that is easy to learn, use, expand and maintain. It is one of the most popular languages ​​in the world. Python is used in almost all fields except front-end.
+
+
+        <div class="mt-10">
+            <Link href="/py_begin/intr00" class="btn-blue-round" locale="en">More</Link>
+        </div>
+
+        
+
+        </div>
+       
+
+    </div>
+
+
+    <div className="lg:flex even:bg-slate-50 mt-20 p-10">
+    
+        <div className="basis-1/2">
+
+
+        ## Python Interpreter 
+        > Download link from official website
+
+
+        If you have zero foundation, it is recommended that you read the introductory tutorial before downloading. The Python interpreter is currently a stable version `3.12`, but it is recommended that beginners download a **slightly lower version** of Python, which will be compatible with more Windows versions and reduce The probability of installation errors does not affect the quick mastery of basic knowledge points at all, and you can run almost all Python programs.
+
+
+        ### Windows
+        
+        - 📥[Python 3.7.9 Click here to download](https://www.python.org/ftp/python/3.7.9/python-3.7.9.exe) - *Does not support WinXP and earlier operating system*(        **Recommended**
+)
+
+        - 📥[Python 3.12.2 Click here to download](https://www.python.org/ftp/python/3.12.2/python-3.12.2.exe) - *Does not support Win7 and previous operating systems*
+
+        ### MacOS
+
+        - [🍎Click here to download Python 3.12.2](https://www.python.org/ftp/python/3.12.2/python-3.12.2-macos11.pkg)
+
+        </div>
+        <div className="basis-1/2 py-10 text-right">
+            <Link href="https://www.python.org/" target="_blank" className="text-center">
+                <Image src="/images/py_web.png" width="550" height="343" className='transition-all mt-10 ml-auto mr-0 rounded-2xl  shadow-xl hover:shadow-2xl hover:scale-105'/>
+                Python Offical Site
+            </Link>
+        </div>
+
+    </div>
+
+
+    {/* 内容开始 */}  
+    <div className="lg:flex even:bg-slate-50 p-10"  id="book">
+
+
+        <div className="basis-1/3 py-10">
+            <Link href="https://product.dangdang.com/28524470.html" target="_blank" className="">
+                <Image src="/images/book.png" width="250" height="343" className='transition-all mt-10 ml-0 rounded-2xl  shadow-xl hover:shadow-2xl hover:scale-105'/>
+                 Link to DangDang E-Store
+            </Link>
+        </div>
+
+    
+        <div className="basis-2/3">
+
+
+        ## Python Programming Fun for Youth
+        
+        This is an introductory book for learning Python programming. It aims to teach Python programming knowledge. It is based on the fantasy adventure stories that teenagers love and runs through the knowledge system of Python. It connects the fun of programming through the storyline and covers all common variables of Python. , functions, statements, modules, classes and object-oriented programming and other knowledge points, and finally sublimated through two large-scale application cases: drawing clock animation patterns and making exquisite snake games.
+
+        This book is an excellent introductory book for teenagers and children to learn Python programming. It is also the first choice book for parents to accompany their children to learn programming together.
+
+
+        ### Resource Links
+
+        - 📥[Source code after-school exercises download](https://github.com/markzhang716/py_youth)
+        - 📥[Free video courses synchronized with Bilibili](https://www.bilibili.com/read/readlist/rl793330)
+        - Uncle Cow answers questions for free 24 hours a day in the QQ group: 1051096460
+
+
+        </div>
+       
+
+    </div>
+
+
+
+    {/* 内容开始 */}  
+    <div className="lg:flex even:bg-slate-50  mt-20 p-10">
+
+
+        <div className="basis-1/2 py-10">
+
+           <Image src="/images/nextra.jpg" width="475" height="252" className='transition-all mt-10 ml-0 rounded-2xl  shadow-xl hover:shadow-2xl hover:scale-105'/>    
+        </div>
+
+    
+        <div className="basis-1/2">
+
+       ## About this site
+        
+        This website uses `React` technology, `Next.js` front-end framework, `Nextra` template's `Docs theme`, and uses Vercel deployment service.
+
+
+        ### Technical links
+
+        - [React](https://reactjs.org/)
+        - [Next.js](https://nextjs.org/)
+        - [Nextra](https://nextra.site/)
+        - [Vercel](https://vercel.com/)
+
+
+        </div>
+       
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
 

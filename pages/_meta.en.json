@@ -1,25 +1,29 @@
 {
 
-    "index": "Introduction",
-    "another": "Another Page",
-    "advanced": "Advanced (A Folder)",
-    "---": {
-        "type": "separator"
-    },
-    "django": {
-        "title": "Django Tutorial"
+    "index": {
+        "title": "Home",
+        "display": "hidden",
+        "theme": {
+            "layout": "full",
+            "breadcrumb": true,
+            "footer": true,
+            "sidebar": false,
+            "toc": false,
+            "pagination": false
+        }
     },
 
 
     "about": {
-        "title": "About Us",
+        "title": "About me",
         "type": "page"
     },
 
-    "contact": {
-        "title": "Contact ↗",
-        "type": "page",
-        "href": "https://twitter.com/shuding_",
-        "newWindow": true
+
+    "home": {
+        "display": "hidden"
     }
+
+
+
 }

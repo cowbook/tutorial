@@ -1,0 +1,103 @@
+# B2 Installing Python
+
+## 0. Preface
+
+This article will introduce how to install the `official Python` runtime environment. The current stable version of Python is 3.13. The official Python interpreter and environment are simple and somewhat crude, not suitable for professional programmers writing Python applications.
+
+Not just Python, but any complete application consists of many files. Therefore, professional programmers need professional IDE tools, such as VsCode, PyCharm, which provide project management, text formatting, auto-completion, and other functions.
+
+Since this installation is simple, we'll start with this. Other installation methods will be introduced later.
+
+## 1. The Official Python Website
+
+It is not recommended to search for Python installation files on Baidu or download Python installation files from any third-party websites. If needed, you should directly visit the official website. The reason for this is that you can't guarantee the most secure version. If you download version 2.0, the difference is like two different programming languages. There are even rumors that some people downloaded Python, but after installation, it turned into a hot mess, and they never learned programming again. The website is as follows:
+
+> https://www.python.org
+
+![https://www.python.org](/images/intr02.zh_2024-04-06-17-13-01.png)
+Figure 1 The official website download page
+
+
+### Least Troublesome Version - Use 3.8.10
+In the Downloads menu in the image above, select Windows if your computer is a Mac, then enter the download page.
+If you are using Windows as shown above, we use `Ctrl` + `F` to search for `3.8.10`, so you can install a version with strong compatibility. As long as your operating system is not an ancient version like Windows XP, you can use this version. If you are unsure about your CPU, you can directly choose the 32-bit installation file as shown in the red box below.
+
+![Windows System](/images/intr02.zh_2024-04-06-19-14-52.png)
+Figure 2 Windows installation file
+
+### Mac Computers
+If you are using MacOS, it is recommended to install the latest version.
+![Mac System Installation File](/images/intr02.zh_2024-04-06-18-49-51.png)
+Figure 4 Mac system installation file
+
+
+## 2. Installing Python
+
+Run the downloaded installation file to install. As shown in the figure below, you need:
+
+**Check both of the following options**
+
+![Install Python](/images/intr02.zh_2024-04-06-19-46-22.png)
+Figure 3 Installation options
+
+Make sure to select Add Python 3.8 to PATH. This option adds Python's executable program to the PATH environment variable, allowing other programs (such as Python editors, command-line programs) to directly call Python to run.
+
+## 3. IDLE Environment Verification
+
+Many beginners finish the installation at this point, but you should verify the following two functionalities. If they are not successful, it means there was an issue with the previous steps. Please uninstall, check the options as per this article, and install again.
+
+Click the start menu, launch IDLE under Python 3.8. IDLE is Python's most basic command line, providing simple program editing and command line functions, which we will hardly use in the future.
+
+![Launch IDLE](/images/intr02.zh_2024-04-06-19-48-23.png)
+Figure 4 Launching the native editor IDLE
+
+Worth mentioning, the menu item "Python 3.8 Manuals" is the Python language guide, a truly excellent resource for learning Python. If your English is above sixth grade, it's recommended to read relevant sections.
+
+The image below shows the IDLE interface, with the `>>>` prompt indicating we have entered Python's runtime environment.
+
+![](/images/intr02.zh_2024-04-06-20-09-08.png)
+
+After opening, we enter the following statement
+
+```
+1+1
+
+```
+
+
+See if it returns 2. GOOD, congratulations, you've learned addition!
+
+```python
+Python 3.8.10 (tags/v3.8.10:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>>1+1
+2
+```
+
+
+After successful verification, let's see how to run Python source programs in the command line.
+
+## 4. Running Python in the Command Line Environment
+Follow the steps below to open the Windows command line environment. Right-click the Start Menu -> "Command Prompt (Admin)" to open the command line as shown below. For convenience in running programs in the future, we right-click the start menu.
+
+
+
+In the command line, as shown in the image below, enter the following command. This is a copy command, used to copy from the console to a file named test.py. In layman's terms, it's creating a new test.py file.
+
+```bash
+copy con test.py           
+```
+
+After entering this command and pressing Enter, the DOS command prompt disappears. Enter the following Python program:
+
+```python
+print('Hello World!')
+```
+
+After typing, press Enter, then press Ctrl+Z on the keyboard, and press Enter again to save the file.
+
+
+![](/images/intr02.zh_2024-04-06-20-11-40.png)
+Command line verification
+
+As shown above, after creating a Python program, run it directly in the command line by entering the file name test.py. If you see the program's output, "Hello World!" it means the verification was successful. If there are issues, reinstall the file as described above.

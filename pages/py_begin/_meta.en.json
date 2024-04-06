@@ -1,3 +1,9 @@
 {
-    "1": "为什么从Python入门"
+    "intr00": "0.Why Best",
+    "intr01": "1.Good Features",
+    "intr02": "2.Installation",
+    "home": {
+        "display": "hidden"
+
+    }
 }

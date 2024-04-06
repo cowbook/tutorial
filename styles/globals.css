@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.btn-blue-round {
+    @apply text-sm bg-gradient-to-br from-green-500 to-green-700 text-white font-bold py-3 px-8 rounded-full shadow;
+}
+
+.btn-blue-round:hover {
+    @apply bg-gradient-to-br from-green-500 to-green-600 cursor-pointer shadow-lg;
+}

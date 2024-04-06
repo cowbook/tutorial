@@ -1,14 +1,21 @@
 {
-    "1": {
-        "title": "为什么从Python入门",
-        "theme": {
-            "layout": "full",
+    "intr00": {
+        "title": "0.选啥语言入门好"
+    },
 
+
+    "intr01": {
+        "title": "1.Python的优点",
+        "theme": {
             "breadcrumb": true,
             "footer": true,
             "sidebar": true,
             "toc": false,
             "pagination": false
         }
+    },
+
+    "intr02": {
+        "title": "2.Python安装"
     }
 }
