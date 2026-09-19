@@ -21,27 +21,27 @@ Let us start by installing VSCode. You can download the latest version convenien
 
 [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download)
 
-![1704013235217](./image/1.startup/1704013235217.png)
+![1704013235217](../../../_django/start_django/image/1.startup/1704013235217.png)
 
 Click Windows on the left to download the installation package
 
 Or open Microsoft Store to install VS code .
 
-![1704080301724](./image/1.startup/1704080301724.png)
+![1704080301724](../../../_django/start_django/image/1.startup/1704080301724.png)
 
 ### 2) create an test.py file
 
 Click "Open Folder" button and create an folder called "projects"
 
-![1704156765986](./image/1.startup/1704156765986.png)
+![1704156765986](../../../_django/start_django/image/1.startup/1704156765986.png)
 
 Then, It returns to the VSCode main interface, as following we create a file named test.py.
 
-![1704157015929](./image/1.startup/1704157015929.png)
+![1704157015929](../../../_django/start_django/image/1.startup/1704157015929.png)
 
 After that, we write some lines of code to print something using python.
 
-![1704157107942](./image/1.startup/1704157107942.png)
+![1704157107942](../../../_django/start_django/image/1.startup/1704157107942.png)
 
 ## **2. Configuring Python**
 
@@ -49,7 +49,7 @@ Begin by installing Python. We created a directory named 'projects' and add a 't
 
 ### 1) Install python extension
 
-![1704157608176](./image/1.startup/1704157608176.png)
+![1704157608176](../../../_django/start_django/image/1.startup/1704157608176.png)
 
 Then, let us back to the file, and you can click "interpreter" right-bottom to select an python interpreter and if your vscode do not have it  the python extension will guide you install python interpreter through lauching Microsoft Store.
 
@@ -57,15 +57,15 @@ Or you can install python outside VScode from  Microsoft Store directly.
 
 ### 2) Install python interpreter
 
-![1704159355737](./image/1.startup/1704159355737.png)
+![1704159355737](../../../_django/start_django/image/1.startup/1704159355737.png)
 
 VsCode will open Microsoft Store to let you install python
 
-![1704159613630](./image/1.startup/1704159613630.png)
+![1704159613630](../../../_django/start_django/image/1.startup/1704159613630.png)
 
 After installing Python 3.x interpreter and runtime, you can press PLAY button to run python file which you are editing in VS Code.
 
-![1704163830216](./image/1.startup/1704163830216.png)
+![1704163830216](../../../_django/start_django/image/1.startup/1704163830216.png)
 
 ## **3. Virtual Environment**
 
@@ -81,22 +81,22 @@ we type following commands to create a  virtual environment called **env** which
 python -m venv env
 ```
 
-![1704164146503](./image/1.startup/1704164146503.png)
+![1704164146503](../../../_django/start_django/image/1.startup/1704164146503.png)
 
 ### 2)Using the virtual environment
 
 As following, we click the right bottom area to select the ENV environment.
 
-![1704168889412](./image/1.startup/1704168889412.png)
+![1704168889412](../../../_django/start_django/image/1.startup/1704168889412.png)
 
 
 We run the test.py file and find out the runtime path has changed to ./env folder
 
-![1704186920246](./image/1.startup/1704186920246.png)
+![1704186920246](../../../_django/start_django/image/1.startup/1704186920246.png)
 
 VS Terminal need be reloaded, if a warning shows like following
 
-![1704187964838](./image/1.startup/1704187964838.png)
+![1704187964838](../../../_django/start_django/image/1.startup/1704187964838.png)
 
 
 ## **4. Installing and Configuring Django**
@@ -109,7 +109,7 @@ We will install Django in the ./env environment using pip, create a Django proje
 python -m pip install django
 ```
 
-![1704187398914](./image/1.startup/1704187398914.png)
+![1704187398914](../../../_django/start_django/image/1.startup/1704187398914.png)
 
 ### 2) create a django project
 
@@ -120,7 +120,7 @@ django-admin startproject artter
 
 ```
 
-![1704197648960](./image/1.startup/1704197648960.png)
+![1704197648960](../../../_django/start_django/image/1.startup/1704197648960.png)
 
 
 ### 3) migrate and createuser
@@ -133,11 +133,11 @@ python -m manage migrate
 python -m manage createsuperuser --username admin
 ```
 
-![1704197812260](./image/1.startup/1704197812260.png)
+![1704197812260](../../../_django/start_django/image/1.startup/1704197812260.png)
 
 After you enter createuser command,  Command line will ask you some questions as following:
 
-![1704198150873](./image/1.startup/1704198150873.png)
+![1704198150873](../../../_django/start_django/image/1.startup/1704198150873.png)
 
 
 
@@ -151,20 +151,20 @@ Also, "runserver" is the command that can start your develpment server. Any Inte
 python -m manage runserver
 ```
 
-![1704198211393](./image/1.startup/1704198211393.png)
+![1704198211393](../../../_django/start_django/image/1.startup/1704198211393.png)
 
 You will see the following pages:
 
-![1704198656872](./image/1.startup/1704198656872.png)
+![1704198656872](../../../_django/start_django/image/1.startup/1704198656872.png)
 
 If you add url /admin after the host,  an admin site entry page will be shown:
 
-![1704198797173](./image/1.startup/1704198797173.png)
+![1704198797173](../../../_django/start_django/image/1.startup/1704198797173.png)
 
 
 Enter your admin & password( on last step you set),you will enter the site:
 
-![1704198870426](./image/1.startup/1704198870426.png)
+![1704198870426](../../../_django/start_django/image/1.startup/1704198870426.png)
 
 ## 5. Conclusion
 

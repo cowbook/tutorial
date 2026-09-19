@@ -1,6 +1,6 @@
 // next.config.js
 const path = require('path')
-const withNextra = require('nextra')('nextra-theme-docs', './theme.config.tsx')
+const withNextra = require('nextra')('./theme.tsx', './theme.config.tsx')
 
 module.exports = withNextra({
     output: 'export',

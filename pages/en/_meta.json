@@ -22,6 +22,9 @@
 
     "home": {
         "display": "hidden"
+    },
+    "py_begin": {
+        "title": "Python for Beginners"
     }
 
 

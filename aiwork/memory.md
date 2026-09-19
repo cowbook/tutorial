@@ -5,3 +5,15 @@
 - Added a GitHub Actions workflow for deployment to GitHub Pages
 - Added `.nojekyll` to prevent GitHub from ignoring static assets
 - Verified the production build succeeds with `pnpm build`
+
+## 2026-09-19 — Fix the deployed homepage 404
+
+- Root cause verified live: `/` and `/en/` returned 404 while `/home.zh/` returned 200; GitHub Actions succeeded and the custom domain was already bound. Earlier build-only verification missed broken routing after removing Next.js i18n.
+- Migrated language-suffixed content and metadata to real static routes: Chinese at the root and English under `/en`. Preserved static image imports and fixed English links.
+- Added a real root index with hydration-safe browser language detection and plain-language links; restored `/home/` and `/en/home/`.
+- Added a static-compatible language switcher and a theme wrapper isolating each language's navigation; made logo destinations and titles language-aware.
+- Included CNAME and .nojekyll in public output. Added static output/link checks directly to `pnpm build`, so the existing workflow cannot publish a missing homepage again.
+- Added Playwright browser regression tests and generated-output ignore rules; updated README deployment and certificate guidance.
+- Verification before commit: production export and link/asset checks passed; all 6 Chromium tests passed; changed TypeScript/JSX files have no editor diagnostics.
+- Removed the embedded token from the Git remote URL. The exposed token must be revoked by its owner; no credentials are recorded here.
+- HTTPS is a separate origin provisioning issue: GitHub API reports no origin certificate and refuses https_enforced=true. Cloudflare edge HTTPS already responds; DNS-only validation requires Cloudflare access, which is not configured in this session.

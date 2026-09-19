@@ -4,7 +4,9 @@
     "description": "Nextra docs template",
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "next build && node scripts/check-export.mjs",
+        "test:export": "node scripts/check-export.mjs",
+        "test:e2e": "playwright test",
         "start": "next start"
     },
     "repository": {
@@ -34,6 +36,7 @@
         "sass": "^1.69.7"
     },
     "devDependencies": {
+        "@playwright/test": "1.58.2",
         "@types/node": "18.11.10",
         "autoprefixer": "^10.4.17",
         "postcss": "^8.4.33",

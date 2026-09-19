@@ -1,23 +1,19 @@
-// LanguageSwitcher.js  
-import React, { useEffect } from 'react';  
-import Cookies from 'js-cookie';  
-import { useRouter } from 'next/router';  
+import React from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
+export default function LanguageSwitcher() {
+  const { pathname } = useRouter()
+  const english = pathname === '/en' || pathname.startsWith('/en/')
+  const href = english
+    ? pathname === '/en' || pathname === '/en/home' ? '/home/' : pathname.slice(3) + '/'
+    : pathname === '/home' || pathname === '/' ? '/en/' : '/en' + pathname + '/'
 
-  
-const LanguageSwitcher = ({ acceptLanguage }) => {  
-  const router = useRouter();  
-  const loca = Cookies.get('NEXT_LOCALE');  
-
-  useEffect(() => {  
-    if (!loca && acceptLanguage.split(',')[0].indexOf('en')>=0 ) {  
-        
-        router.push('/en');  
-       
-    }  
-  }, [acceptLanguage, router]);  
-  
-  return null;  
-};  
-  
-export default LanguageSwitcher;
+  return (
+    <Link href={href} lang={english ? 'zh' : 'en'}
+      aria-label={english ? '切换到中文' : 'Switch to English'}
+      onClick={() => { document.cookie = `NEXT_LOCALE=${english ? 'zh' : 'en'}; Max-Age=31536000; Path=/; SameSite=Lax` }}>
+      {english ? '中文' : 'English'}
+    </Link>
+  )
+}

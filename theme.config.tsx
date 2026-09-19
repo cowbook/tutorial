@@ -2,6 +2,7 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 import Image  from 'next/image'
+import LanguageSwitcher from './components/switchlang'
 
 const config: DocsThemeConfig = {
 
@@ -12,7 +13,7 @@ const config: DocsThemeConfig = {
 
     //console.log('logo',router)
 
-    if(router.locale == 'zh'){
+    if(!(router.pathname === '/en' || router.pathname.startsWith('/en/'))){
 
     return(
     <>
@@ -45,7 +46,7 @@ const config: DocsThemeConfig = {
 
     //console.log('logo',router)
 
-    if(router.locale == 'zh'){
+    if(!(router.pathname === '/en' || router.pathname.startsWith('/en/'))){
 
       return (
         <div className='logo'>
@@ -72,10 +73,9 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/cowbook/tutorial',
   },  
-  i18n: [
-    { locale: 'en', text: 'English' },
-    { locale: 'zh', text: '中文' }
-  ],
+  navbar: {
+    extraContent: LanguageSwitcher,
+  },
   docsRepositoryBase: 'https://github.com/cowbook/tutorial',
   footer: {
     text: 'Copyright@ Shanghai ShiShilian Co.',
