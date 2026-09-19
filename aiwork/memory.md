@@ -17,3 +17,10 @@
 - Verification before commit: production export and link/asset checks passed; all 6 Chromium tests passed; changed TypeScript/JSX files have no editor diagnostics.
 - Removed the embedded token from the Git remote URL. The exposed token must be revoked by its owner; no credentials are recorded here.
 - HTTPS is a separate origin provisioning issue: GitHub API reports no origin certificate and refuses https_enforced=true. Cloudflare edge HTTPS already responds; DNS-only validation requires Cloudflare access, which is not configured in this session.
+
+## 2026-09-19 — Repair clean CI dependency installation
+
+- Remote run 35452202984 exposed a legacy mirror-tarball lockfile conversion incompatibility with pnpm 9.15.9; local cached installation had masked it.
+- Pinned existing direct dependency versions (including Nextra 2.13.3 rather than latest), configured npmjs.org in .npmrc, and regenerated the lockfile using pnpm 9.15.9 after removing its stale cached lock snapshot.
+- Verified pnpm 9.15.9 frozen installation, production export/link checks, and all 6 Chromium tests again with the regenerated dependencies.
+- Existing dependency deprecation/peer warnings remain; a major framework/security upgrade is separate from this static-hosting outage repair.
