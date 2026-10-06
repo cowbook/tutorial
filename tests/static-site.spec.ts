@@ -44,10 +44,15 @@ test('chapter deep links and same-chapter language switching work', async ({ pag
 test('both language pages load images and all local assets', async ({ page }) => {
     const failures: string[] = []
     page.on('response', response => { if (response.status() >= 400 && response.url().startsWith(new URL(page.url()).origin)) failures.push(response.url()) })
-    for (const path of ['/home/', '/en/', '/py_begin/intr00/', '/en/py_begin/intr00/']) {
+    for (const path of ['/home/', '/en/', '/py_begin/intr01/', '/en/py_begin/intr01/',
+        '/py_begin/intr02/', '/en/py_begin/intr02/']) {
         await page.goto(path, { waitUntil: 'networkidle' })
-        await expect(page.locator('img').first()).toBeVisible()
-        expect(await page.locator('img').first().evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true)
+        const images = page.locator('main img')
+        expect(await images.count()).toBeGreaterThan(0)
+        for (const image of await images.all()) {
+            await image.scrollIntoViewIfNeeded()
+            await expect.poll(() => image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true)
+        }
     }
     expect(failures).toEqual([])
 })

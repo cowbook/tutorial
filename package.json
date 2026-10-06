@@ -1,52 +1,56 @@
 {
-    "name": "nextra-docs-template",
+    "name": "cowbook-tutorial",
     "version": "0.0.1",
-    "description": "Nextra docs template",
+    "description": "Bilingual programming tutorials built with Nextra",
+    "private": true,
+    "packageManager": "pnpm@10.34.6",
+    "engines": {
+        "node": ">=24 <25"
+    },
     "scripts": {
-        "dev": "next dev",
-        "build": "next build && node scripts/check-export.mjs",
+        "dev": "next dev --webpack",
+        "build": "next build --webpack && pagefind --site out --output-path out/_pagefind && node scripts/check-export.mjs",
+        "typecheck": "next typegen && tsc --noEmit",
+        "lint": "eslint .",
+        "images:optimize": "node scripts/optimize-images.mjs",
         "test:export": "node scripts/check-export.mjs",
         "test:e2e": "playwright test",
-        "start": "next start"
+        "start": "node scripts/serve-export.mjs"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/shuding/nextra-docs-template.git"
+        "url": "git+https://github.com/cowbook/tutorial.git"
     },
     "author": "Shu Ding <g@shud.in>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/shuding/nextra-docs-template/issues"
+        "url": "https://github.com/cowbook/tutorial/issues"
     },
-    "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+    "homepage": "https://www.xiaoniushu.com/",
     "dependencies": {
-        "@headlessui/react": "1.7.18",
-        "@heroicons/react": "2.1.1",
-        "@vercel/kv": "1.0.1",
-        "flexsearch": "0.7.31",
-        "js-cookie": "3.0.5",
-        "js-cookies": "1.0.4",
-        "next": "14.0.4",
-        "next-i18next": "15.2.0",
-        "nextra": "2.13.3",
-        "nextra-theme-docs": "2.13.3",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "react-mermaid2": "0.1.4",
-        "sass": "1.69.7"
+        "next": "16.3.8",
+        "nextra": "4.6.1",
+        "nextra-theme-docs": "4.6.1",
+        "react": "19.3.0",
+        "react-dom": "19.3.0"
     },
     "devDependencies": {
-        "@playwright/test": "1.58.2",
-        "@types/node": "18.11.10",
-        "@types/react": "18.2.21",
-        "autoprefixer": "10.4.17",
-        "postcss": "8.4.33",
-        "tailwindcss": "3.4.1",
-        "typescript": "4.9.3"
-    },
-    "pnpm": {
-        "overrides": {
-            "flexsearch": "0.7.31"
-        }
+        "@eslint/js": "10.0.1",
+        "@next/eslint-plugin-next": "16.3.8",
+        "@playwright/test": "1.63.0",
+        "@tailwindcss/postcss": "4.3.3",
+        "@types/node": "24.19.1",
+        "@types/mdx": "2.0.14",
+        "@types/react": "19.3.0",
+        "@types/react-dom": "19.3.0",
+        "eslint": "10.12.0",
+        "eslint-plugin-react-hooks": "7.1.1",
+        "globals": "17.13.0",
+        "pagefind": "1.5.2",
+        "postcss": "8.5.29",
+        "sharp": "0.35.5",
+        "tailwindcss": "4.3.3",
+        "typescript": "5.9.3",
+        "typescript-eslint": "8.71.1"
     }
 }

@@ -1,13 +1,13 @@
-import React from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+'use client'
 
-export default function LanguageSwitcher() {
-  const { pathname } = useRouter()
-  const english = pathname === '/en' || pathname.startsWith('/en/')
-  const href = english
-    ? pathname === '/en' || pathname === '/en/home' ? '/home/' : pathname.slice(3) + '/'
-    : pathname === '/home' || pathname === '/' ? '/en/' : '/en' + pathname + '/'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { getLanguageTarget, getLocale } from '../lib/site'
+
+export default function LanguageSwitcher({ routes }: { routes: readonly string[] }) {
+  const pathname = usePathname()
+  const english = getLocale(pathname) === 'en'
+  const href = getLanguageTarget(pathname, routes)
 
   return (
     <Link href={href} lang={english ? 'zh' : 'en'}

@@ -1,0 +1,9 @@
+autoInstallPeers: false
+
+onlyBuiltDependencies:
+  - unrs-resolver
+
+# Nextra 4's layout schema relies on the pre-4.6 Zod custom-field semantics.
+overrides:
+  nextra>zod: 4.1.12
+  nextra-theme-docs>zod: 4.1.12

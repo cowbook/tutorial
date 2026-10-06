@@ -1,10 +1,57 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
 .btn-blue-round {
     @apply text-sm bg-gradient-to-br from-green-500 to-green-700 text-white font-bold py-3 px-8 rounded-full shadow;
 }
 
 .btn-blue-round:hover {
     @apply bg-gradient-to-br from-green-500 to-green-600 cursor-pointer shadow-lg;
+}
+
+.home p {
+    line-height: 1.4;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.logo strong {
+    font-size: clamp(1rem, 2vw, 1.75rem);
+    white-space: nowrap;
+}
+
+.logo span {
+    font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+    .logo span {
+        display: none;
+    }
+
+    .home-hero h1 {
+        font-size: 2rem;
+        line-height: 1.4;
+    }
+}
+
+.language-landing {
+    max-width: 720px;
+    margin: 15vh auto;
+    padding: 24px;
+    text-align: center;
+}
+
+.language-landing h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.language-landing a {
+    text-decoration: underline;
 }
