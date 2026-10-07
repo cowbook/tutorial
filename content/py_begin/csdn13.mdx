@@ -1,0 +1,179 @@
+---
+title: "小牛叔讲Python第13章：类Class中的各种变量类型"
+---
+
+> 本文由作者原文迁入，保留原文叙述与示例。内容发表于 2021–2022 年，软件版本和界面截图可能已过时，请以官方文档为准。
+> 原文：[CSDN 博客](https://blog.csdn.net/dosboy5266/article/details/122506799)
+
+[小牛叔讲Python第12章：面向对象类与实例（Class入门）](https://blog.csdn.net/dosboy5266/article/details/122231512 "小牛叔讲Python第12章：面向对象类与实例（Class入门）")
+
+### 
+
+#### **小牛叔带你飞越类的门槛**
+
+### 1、开始
+
+我们把在类Class中定义的变量称为类的属性。在不同的位置定义变量会有不同的作用，采用不同的命名方式，也会让变量具有不同的作用。
+
+如下定义类：指南针（compass），它可能在某个地图游戏中，用来帮助主角寻找方向，本节围绕这个示例展开。
+
+compass类的定义如下代码，invitedBy和usedFor是类属性，shape是实例属性：
+
+```python
+class Compass:
+    invitedBy = '中国'
+    usedFor ='导航'
+    #初始化方法
+    def __init__(self):
+        self.shape = 'round'
+```
+
+### 2、类属性
+
+Compass类，定义了2个变量分别是invitedBy（发明者），usedFor（用处）。因为直接定义在类的下层，可被称为类属性，这2个变量（即类属性）代表的意义，归所有“指南针”同时具有的，它们的值与“类”实例化出的“实例”无关。在其它面向对象语言中，类似于这样的变量叫做类属性、类变量、或是静态变量（C++中)。
+
+类属性定义完成后也通过“实例名.变量名”的形式进行读取数值，如下语句所示：
+
+```python
+com1,com2 = Compass(),Compass()
+print(com1.invitedBy,com2.invitedBy)
+```
+
+运行的结果是：
+
+```undefined
+中国 中国
+```
+
+### 2、类属性赋值
+
+如类属性需要改变值，必须通过**“类名.变量名”**这样的形式进行赋值，请参看下面的代码把这两个属性值改成英文表达：
+
+```python
+Compass.invitedBy = 'CN'
+print(com1.invitedBy,com2.invitedBy)
+```
+
+上面代码改变了类变量的值，但从Compass类实例化出来的所有的实例的值都会改变，运行结果如下：
+
+```undefined
+中国 中国
+CN CN
+```
+
+需要说明的是，类属性无法通过“实例.变量名”这种形式赋值的，如果你这样做了，Python是会根据规则做出误判断，认为这种形式的赋值是给“实例属性”赋值，而不是“类属性”。系统并不会出错，只会产生一个与类属性相同名称的实例属性名，从而把同名的类属性给“覆盖”掉,继续在上面的语句后面添加如下的语句：
+
+```python
+com1.invitedBy = 'Korean'
+print(com1.invitedBy,com1.__class__.invitedBy,com2.invitedBy)
+```
+
+上面语句中，使用了“**特殊变量**”***\_\_class\_\_***，它指向该实例的类。通过如下对比一下第2句显示的2个值有什么不同。
+
+***com1.invitedBy：***指的是com1实例的invitedBy属性，可以是“实例属性”也可以是“类属性”，但“实例属性”优先。
+
+***com1.\_\_class\_\_.invitedBy：***\_\_class\_\_变量会返回实例的类，因此invitedBy一定表示“类变量”。把com1实例的“类变量”invitedBy“错误”赋值后，再看看会不会产生“覆盖的效果”，整个程序的运行结果如下：
+
+```python
+中国 中国
+CN CN
+Korean CN CN
+```
+
+看到如果企图通过实例来对“类属性”进行赋值Korean，只会新创建该实例属性并且赋于新值Korean，并且这个值只会覆盖企图通过“实例名.类变量名”方式来取得类属性的值。
+
+### 3、类属性用于存取共性特征
+
+对于“类属性”，我们一般把类的通用的属性、共同的数据或是需要集中的数据，通过类变量的方式存储，这样就可以操作实例共同的属性或是方便批量操作。
+
+比如使用类Student来管理学生信息，一般会把学生的成绩数据库，存储在类变量（类属性）里，这样操作员只要访问类，就可以取得所有同学的成绩。
+
+### 4、私有变量
+
+在进行类定义时，可以定义私有变量，只能在类的内部使用，而外部无法。声明私有变量，使用2个下划线开头来进行命名即可，比如：指南针实例有私有变量\_\_magnetism，其记录了指针的磁性，本数据外人一般无需使用，但是可能在实现内部功能的时候会有用处。如下：
+
+```python
+class Compass:
+    invitedBy = '中国'
+    usedFor ='导航'
+    #初始化方法
+    def __init__(self):
+        self.shape = 'round'
+        self.__ magnetism = 4
+```
+
+上面代码定义了实例属性shape形状，默认值是round（圆形），定义了“私有变量”\_\_magnetism设置为4，用来表示指针的磁力。试试从“外部”来访问这个私有变量能不能访问成功：
+
+```python
+com1,com2 = Compass(),Compass()
+print(com1.__ magnetism)
+```
+
+这时系统运行的结果出错，出错信息如下：
+
+```cobol
+AttributeError: 'Compass' object has no attribute '__magnetism’
+```
+
+中文意思为：属性错误“Compass”对象没有\_\_magnetism的属性。
+
+### 5、私有变量的使用
+
+由于私有变量不能被外部访问，这种机制起到了保护变量的作用，但它的值并不是不能改变的，可以把设置私有变量的任务交给普通的类内部的方法。如下：
+
+```python
+def setMag(self,mag_level=4):
+    self.__magnetism = mag_level
+```
+
+上面setMag的方法就完成了设置私有变量的值的任务，上例当中私有变量\_\_magnetism用来反馈指针的磁性。在现实逻辑上，当指针正常工作时，“使用者”不关心磁性值，但如果这个值太小，就会造成指南针根本无法工作，人们更加关心的是指南针能否正常工作。所以有一个返回工作状态的方法，写法如下：
+
+```python
+ def getStatus(self):
+     return self.__magnetism>=1 if "正常" else "失效"
+```
+
+***PS: 代码结尾返回“三元运算”表达式，当磁性大于等于1时，返回工作状态为“正常”，否则就返回“失效”。***
+
+看看这个私有变量能否正常的工作，所有的程序如下：
+
+```python
+class Compass:
+    invitedBy = '中国'
+    usedFor ='导航'
+    #初始化方法
+    def __init__(self):
+        self.shape = 'round'
+        self.__magnetism = 4
+    def setMag(self,mag_level=4):
+        self.__magnetism = mag_level
+    def getStatus(self):
+        return "正常" if self.__magnetism>=1 else "失效"
+ 
+com1,com2 = Compass(),Compass()
+com1.setMag(1)
+com2.setMag(0.5)
+print(com1.getStatus(),com2.getStatus())
+#下面的语名会出错
+print(com1.__magnetism)
+```
+
+在上面的程序里，最后1行我们试图访问类的私有变量，因此会出错。如下：
+
+```python
+正常 失效
+Traceback (most recent call last):
+ File "/Users/…/books/第7章 类和对象/7.4.2 类内部变量.py", line 18, in <module>
+ print(com1.__magnetism)
+AttributeError: 'Compass' object has no attribute '__magnetism'
+```
+
+从运行结果的第1行看，把2个指南针的磁性分别设置成1和0.5，就会分别得出正常和失效的状态，程序的前半部分运行成功。
+
+### 6、私有函数
+
+此处稍作延伸，编写类的“方法”时，即类中定义的函数，也有一类叫私有函数，其命名的方式就是以两个下划线开头\_\_MethodName()。这部分的内容同学们可以自行参照私有变量学习。
+
+最后，同学们应该了解一下私有变量的实现的原理。在Python当中，默认所有的变量与方法都是外部可访问的，在内部为了实现私有变量的功能，比如在类cls下定义了一个私有变量\_\_a，系统在运行的时候会把这个变量改写成\_cls\_\_a，即单划线+“类名”+私有变量名。试试看本例中你想从外部显示\_\_ magnetism的值可以变通一下写什么样的语句？
+
+### 类本身具有比较复杂的性质，收藏本文章，可以今后慢慢学习吧！小牛叔与你共同进步！

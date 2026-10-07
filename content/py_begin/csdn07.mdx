@@ -1,0 +1,90 @@
+---
+title: "小牛叔讲Python第7章：循环与条件的爱恨情仇"
+---
+
+> 本文由作者原文迁入，保留原文叙述与示例。内容发表于 2021–2022 年，软件版本和界面截图可能已过时，请以官方文档为准。
+> 原文：[CSDN 博客](https://blog.csdn.net/dosboy5266/article/details/117337693)
+
+***上一篇：[小牛叔讲Python第6章:for循环-能计数的循环1234567](https://blog.csdn.net/dosboy5266/article/details/117264250)***
+
+***[下一篇：小牛叔讲Python第8章：集合大家一起的快乐](https://blog.csdn.net/dosboy5266/article/details/118634373)***
+
+*python的循环语句挺有个性，不仅有break,continue语句还有else*
+
+说实话了解到 “循环还能带else”，我整个人都慒了，学了十几年计算语言，第一次有人说循环还可以带else语句，这和条件语句有什么区别呢？
+
+### 1、带else条件的循环
+
+**while循环的语法：**
+
+```csharp
+while 条件:
+     循环内语句块 
+else:
+     else语句块
+```
+
+**for循环的语法：**
+
+```csharp
+for 变量 in 集合:
+     循环内语句块
+ else:
+     else语句块 
+```
+
+> else语句块会在“循环条件不满足时” 运行一次，一般是循环结束后运行或是一开始条件不满足无法执行循环内语句时运行。
+
+这个语句对于简化如下的操作非常有用：
+
+1、判断是否打满循环了，还是中途被跳出了。  
+2、处理循环退出前的 “最后一次” 的操作。
+
+### 2、跳出break与继续continue
+
+*   在循环中的break语句，会跳出循环。
+*   在循环中的continue语句，会跳过下面的语句，直接跳到循环开头继续下一次循环。  
+      
+    如果跑圈算循环，break与continue的作用。
+
+![](/images/csdn-python/30d6d11764e35a17cd879593617216ad.png)
+
+```python
+for 变量 in 集合:  #continue语句会跳到这里，读取变量值继续循环     
+    循环内语句块     
+    if 跳出条件:
+         break 
+    if 继续条件:
+        continue
+    <continue执行会跳过>
+else:
+   else语句块
+ <break语句会跳到这里> 
+```
+
+### 3、编程示例
+
+[琼恩·雪诺](https://link.zhihu.com/?target=https%3A//links.jianshu.com/go%3Fto%3Dhttps%253A%252F%252Fbaike.baidu.com%252Fitem%252F%2525E7%252590%2525BC%2525E6%252581%2525A9%2525C2%2525B7%2525E9%25259B%2525AA%2525E8%2525AF%2525BA)决定离开北境长城深入北方会会夜王，在离开前他与指挥官总司令[杰奥·莫尔蒙](https://link.zhihu.com/?target=https%3A//links.jianshu.com/go%3Fto%3Dhttps%253A%252F%252Fbaike.baidu.com%252Fitem%252F%2525E6%25259D%2525B0%2525E5%2525A5%2525A5%2525C2%2525B7%2525E8%25258E%2525AB%2525E5%2525B0%252594%2525E8%252592%252599)有一个约定程序：设定期限13天后（12次循环体）指挥官派兵营救（循环体下个动作），但如果某天看见了红色信号弹（条件），不用等待（退出循环）必须立刻去营救，在等待期间正常隔一天维护一次望远镜（跳过维护程序continue）。
+
+```python
+for i in range(1,13): 
+    print('这是第',i,'天') 
+    if(input('看到红色信号弹了(y/n)?')=='y'): 
+        break 
+    if(i%2==0): 
+        continue 
+    print('维护望远镜') 
+else: 
+    print('13天-等待结束！') 
+print('准备营救!') 
+```
+
+程序使用了今天我们学习所有的内容，等待12天使用了for循环，通过else语句来打印打满循环进入第13天的状态（这样就与信号弹break强跳出区分出来了），使用continue来跳过循环中的望远镜维护过程。
+
+下面我们看看运行的结果：
+
+![](/images/csdn-python/65da6c8ec4b55e8df84f61255985c16b.gif)
+
+## 
+
+## *跟随小牛叔的脚步，认准入门的好姿式！*

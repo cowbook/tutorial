@@ -1,0 +1,250 @@
+---
+title: "小牛叔讲Python第2章：安装配置Python编程环境"
+---
+
+> 本文由作者原文迁入，保留原文叙述与示例。内容发表于 2021–2022 年，软件版本和界面截图可能已过时，请以官方文档为准。
+> 原文：[CSDN 博客](https://blog.csdn.net/dosboy5266/article/details/115054681)
+
+*小牛叔致力帮助更多的人，更好的入门，本系列从Python开始吧！*
+
+上一篇：[小牛叔讲Python第1章: 编程界的瑞士军刀Python](https://blog.csdn.net/dosboy5266/article/details/115043205)
+
+下一篇：[小牛叔讲Python第3章:基本概念VSIO(变量、字符、输入输出)](https://blog.csdn.net/dosboy5266/article/details/115276986)
+
+**目录**
+
+[一、安装官方环境](#t0)
+
+[1、官方Python的网站](#t1)
+
+[2、安装Python](#t2)
+
+[3、验证安装](#t3)
+
+[3.1 IDLE环境验证](#t4)
+
+[3.2 命令行环境运行Python](#t5)
+
+[二、安装Visual Studio Code编辑器](#t6)
+
+[1 首先找到Visual Studio Code官网](#t7)
+
+[2 新建个文件夹放程序](#t8)
+
+[3 安装VS内的Python环境](#t9)
+
+[4 编写测试代码](#t10)
+
+[5 安装中文界面](#t11)
+
+本篇内容手把手教您如何去网上下载安装Python的运行环境，本文写于2020年Python稳定的版本是3.8，Windows流行的版本是Win10，各位看官搜索到本文时可能已经2050年了，但教程任然有用，只要你用的是Windown系统，但是一定要注意如下几点。
+
+本教程包括二个部分，如果您从头学到尾，将会在计算机上安装2套Python环境。
+
+## 一、安装官方环境
+
+首先要说明的，官方的编程环境不是必须安装，可跳过本节直接安装VS Code（微软推出支持多语言的编程环境），如果都安装了本文的全部环境，您的操作系统会有两套Python。所以在您运行程序时，您要清楚你运行的是哪个Python哦，如果您怕自己搞糊涂，可以直接跳过本章只安装VS Code。
+
+#### **1、官方Python的网站**
+
+下载Python时强烈建议去官网（起码看看目前最稳定的版本是什么），不建议在其它任何第三方网站上下载Python安装文件，理由只有一个：无法保证最新版本，万一你下载到了2.0版本，其差别就是两种编程语言。还传说有的人下载了Python，安装后却变成了汤不热，从此再也没有学过编程。
+
+网址如下：[https://www.python.org](https://link.zhihu.com/?target=https%3A//links.jianshu.com/go%3Fto%3Dhttps%253A%252F%252Fwww.python.org)
+
+![](/images/csdn-python/92eaae029f4e9680604f858bdf8a9c46.jpeg)
+
+图1 官网找到对下载页面
+
+在Downloads的菜单中选择Windows，进入到下载页面，如下图：
+
+初学者此处应谨慎装A，因此建议选择稳定(Stable)和可执行(Excutable)的版本：
+
+![](/images/csdn-python/0dc95eacf897b05321a1dce65e5a784f.jpeg)
+
+图2 找对下载的安装文件
+
+  
+官方网站下载的速度非常滴慢，此痛点有特效药，提示：迅雷可以帮我们药到病除。
+
+#### **2、安装Python**
+
+运行下载的安装文件，进行安装。如下图，需要把如下2个选项都勾选，重要的事情再说一遍，无论安装的哪个版本，都要全选全选!
+
+![](/images/csdn-python/4d5d02eb61a4bc6de14c5a038b65e6d3.jpeg)
+
+图3 安装选项
+
+  
+确保***Add Python 3.8 to PATH***选中，
+
+本选项：可以把Python的可执行程序和组件目录加入PATH环境变量，可让其它程序（比如Python编辑器、命令行程序）直接调用Python解释器来运行.py文件。
+
+#### **3、验证安装**
+
+很多小哥哥安装到此就结束了，在此应该进行如下2个功能的验证，如果不成功那么说明您前面的程序有问题，请重新卸载，按照本文的要求全部勾选，再来安装一次。
+
+#### **3.1 IDLE环境验证**
+
+点击开始菜单，启动Python3.8下面的IDLE。 IDLE是Python最基本的命令行，提供简单的程序编辑和命令行功能，基本上我们今后用不到它。
+
+![](/images/csdn-python/03da19d155f663fb5ac1a2f2353d17f6.jpeg)
+
+图4 启动原生编辑器
+
+  
+值得一提的是菜单中的 Python 3.8 Manuals ，是Python的语言指南，是学习Python真正的好东东，如果英文在小学6年级之上，建议好好阅读相关章节。
+
+下图是打开IDLE后的界面，>>>这三个大于号就是提示符，提示我们已经进入了python的运行环境。
+
+![](/images/csdn-python/f7bb0adeead23809833f6ed89d95ef40.jpeg)
+
+打开后，我们输入（前面的大于号不用输入）如下的语句 1+1，看看是不是返回2了。GOOD，恭喜你，学会了加法！
+
+```python
+Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)] on win32Type "help", "copyright", "credits" or "license()" for more information.
+>>> 1+1
+2
+>>>
+```
+
+\>>>这个符号是命令模式的提示符，用来提示用户输入语句。验证成功后，我们再来验证在命令行下如何运行Python的源程序。
+
+#### **3.2 命令行环境运行Python**
+
+通过如下的步骤打开Windows的命令行环境，右击 开始菜单 -> “命令提示符（管理员）”，可以打开如下的命令行，为了方便今后运行程序，我们 右击开始菜单。
+
+![](/images/csdn-python/3f932188d19a4fc9872ef0903214c434.jpeg)
+
+  
+在命令行中，如下图，输入下面的命令，这是一个拷贝命令，用来把con就是控制台copy到文件test.py文件。用人话说就是：新建一个test.py文件。
+
+```cobol
+copy con test.py           
+```
+
+输入这个命令回车后，DOS命令行提示符会消失，输入如下的python程序：
+
+print('Hello World!') 输完后按下回车，再按下键盘上的 Ctrl+Z 键，然后再按下回车，就可以保存文件。
+
+![](/images/csdn-python/d4359a5ccc4c445bed402e033b79ce36.jpeg)
+
+命令行验证
+
+  
+如上图，我们创建了一个Python的程序后，直接在命令行运行它，在命令行中直接输入这个文件名称test.py如果你看到返回了程序运行的结果Hello World!说明验证成功，如果有问题，那么重新安装上面的文件。
+
+## **二、安装Visual Studio Code编辑器**
+
+初学者在学习代码时，使用顺手的编辑器，才能方便学习。很多专业人士推荐PyCharm，其实无论使用哪一个简单易用不出问题才是最好，所以这里我们推荐大家使用微软的Visual Studio Code编辑器，免费简单并且所有的东西都是一键安装。
+
+#### **1 首先找到Visual Studio Code官网**
+
+这是官方下载的地址,如下图选择正确的版本下载，安装后会启动。
+
+[https://visualstudio.microsoft.com/zh-hans/downloads/](https://link.zhihu.com/?target=https%3A//links.jianshu.com/go%3Fto%3Dhttps%253A%252F%252Fvisualstudio.microsoft.com%252Fzh-hans%252Fdownloads%252F)
+
+![](/images/csdn-python/bbc213f7d9e8829a7906244a2da7df39.jpeg)
+
+  
+**PS: 官网下载，才可靠**
+
+#### **2 新建个文件夹放程序**
+
+安装完毕后，打开Visual Studio Code程序，
+
+如下图点击“Open Folder ” 打开一个文件夹。
+
+![](/images/csdn-python/cd4738c111a09478c54e2cb30d2cb821.jpeg)
+
+  
+打开文件夹
+
+在弹出的对话框中，新建一个文件夹python，用来放源程序，并且选择它。
+
+![](/images/csdn-python/bb2879afab614fc7f14e54a1918de203.jpeg)
+
+如下图，点击“新建文件” 按钮，再新建一个文件: first.py
+
+![](/images/csdn-python/48706fdad67b8f42a5f7b3499b3e1292.jpeg)
+
+新建.py文件
+
+####   
+**3 安装VS内的Python环境**
+
+创建好.py文件后，我们把鼠标移到右边窗口，这时神奇的事情出现了，右下角弹出提示，如下图：
+
+![](/images/csdn-python/d1b85210a14910dcb7e64aa88db6576c.jpeg)
+
+  
+自动提示
+
+直接点击install，安装Python运行的环境，这其实和我们第1步安装的Python是完全重复的，但是为减少编辑器的设置工作，安装2个Python又有什么关系呢？如果没有弹出窗口，也可以使用如下的方法找到Python组件。
+
+![](/images/csdn-python/90ca54c68f281dabbd762cb9a248d860.jpeg)
+
+  
+点击左边栏内搜索到的Python组件，主窗口中点击Install，进行安装。
+
+![](/images/csdn-python/ffcd86e89d58070f298a504d3642f629.jpeg)
+
+  
+安装完毕，立刻在右边又出来了如下的提示窗口：
+
+这是Python的组件，pylint用来对Python代码进行智能提示和着色的。
+
+![](/images/csdn-python/b52f370525cf6a91656e700e8794112a.jpeg)
+
+  
+可以直接点击Install进行安装，如果没有弹出这个窗口，可以使用Python的pip工具后续补安装，在DOS命令提示里输入：
+
+```cobol
+>pip install pylint    
+```
+
+就可以安装pylint
+
+#### **4 编写测试代码**
+
+下面我们使用如下代码测试一下Python安装的情况：
+
+```python
+import random
+print(random.randint(1,9))
+```
+
+本程序打印一个1-9的随机数，写好后，右击窗口，选择“在终端窗口中运行文件”，如下图：
+
+![](/images/csdn-python/84a93f7809067f9530a4aa9d0d52c308.jpeg)
+
+运行文件
+
+  
+可以看到在主窗口下方的“TERMINAL” 终端窗口里，给出了运行的结果：4
+
+![](/images/csdn-python/06cda3151aae927b8b0b159dbfc8619a.png)
+
+  
+上图的第1、2行其实是生成的DOS环境的命令，可以看到它调用了刚刚安装的python来运行这个文件；
+
+第3行是运行结果。
+
+#### **5 安装中文界面**
+
+VScode默认是英文环境，我们继续打开组件面板，像安装Python一样来安装中文界面，如下图经过3步骤，即可安装中文。
+
+![](/images/csdn-python/c563bf26583f42d7268ad7d94a30f1dc.jpeg)
+
+安装中文的顺序
+
+安装完毕，系统提示重启，界面汉化完成！
+
+![](/images/csdn-python/d2702aab1f76048b9d917bb7c540672c.jpeg)
+
+经过上面的步骤，我们就完成了基本的Python环境的安装。
+
+## **恭喜您，终于把PC武装起来了，快跟随小牛叔进入Python的世界。**
+
+上一篇：[小牛叔讲Python第1章: 编程界的瑞士军刀Python](https://blog.csdn.net/dosboy5266/article/details/115043205)
+
+下一篇：[小牛叔讲Python第3章:基本概念VSIO(变量、字符、输入输出)](https://blog.csdn.net/dosboy5266/article/details/115276986)

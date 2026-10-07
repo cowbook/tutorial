@@ -1,0 +1,206 @@
+---
+title: "小牛叔讲Python第1章：编程界的瑞士军刀Python"
+---
+
+> 本文由作者原文迁入，保留原文叙述与示例。内容发表于 2021–2022 年，软件版本和界面截图可能已过时，请以官方文档为准。
+> 原文：[CSDN 博客](https://blog.csdn.net/dosboy5266/article/details/115043205)
+
+[下一篇：小牛叔讲Python第2章:安装配置Python编程环境](https://blog.csdn.net/dosboy5266/article/details/115054681)
+
+*小牛叔倾情出品，史上更简单有趣的Python入门系列教程，用认真、上心的原创带你飞。*
+
+**目录**
+
+*   [0 Why Python ?](#0%E3%80%81Why%20Python%20%3F)
+*   [1 Python江湖地位 ?](#1%20Python%E6%B1%9F%E6%B9%96%E5%9C%B0%E4%BD%8D%20%3F)
+*   [2 怎么盘她？](#2%E3%80%81%E6%80%8E%E4%B9%88%E7%9B%98%E5%A5%B9%EF%BC%9F)
+*   [3 她 的美](#3%E3%80%81%E5%A5%B9%20%E7%9A%84%E7%BE%8E)
+*   [4 她 的实用](#4%20%E5%A5%B9%20%E7%9A%84%E5%AE%9E%E7%94%A8)
+
+*Python在众多的编程语言中是什么地位，我们把它比做编程界的瑞士军刀。*
+
+### **0 Why Python ?**
+
+什么入门用python，其实这和它的气质有关，根据CHM（计算机历史博物馆）网站介绍\[1\]，Van Rossum 曾经在1999年陈述过创造Python的动机，“她”应该是这样:
+
+\- “她” 简洁而直观，功力却能比肩同僚。
+
+\- “她” 坦诚而开源，方能博采众家所长。
+
+\- “她” 亲切而易懂，孩童级的英语足矣。
+
+\- “她” 贴心而实用，日常杂事速战速决。  
+ 
+
+—放羊的小牛叔
+
+![](/images/csdn-python/a4d241905b842e10ef16e94afe799954.png)
+
+Guido: 我说过这么优美的诗？
+
+#### **Guido Van Rossum 的初心原话：**
+
+> It should be an easy and intuitive language, just as powerful as major competitors.  
+> It should be open source, so anyone can contribute to its development.  
+> Its code should be understandable as plain English.  
+> It should be suitable for everyday tasks, allowing for short development times.
+
+你是不是已经开始倾心于“她”了呢？
+
+可以说Python就是在编程芸芸世界里，专修语言类专业，十八般功夫具全，并且养眼的小学妹。
+
+![](/images/csdn-python/3daee7b0c06c4ac0cc163628247422d6.jpeg)
+
+  
+貂蝉：想欣赏亲身的舞姿麼？
+
+不好意思有点辣眼睛，肯定是小编搞错了，王者里的貂蝉－略做作、略官宦、功夫略专业了点（ｅ～～），真正能代表Python江湖地位的只有这货了，精通72变的-齐天大圣！非官方出品，真正草根出身，衣冠整洁而技能超多。
+
+![](/images/csdn-python/206b3dd949cd39bacb7a9fabf8752700.jpeg)
+
+  
+悟空：俺老孙来也
+
+### **1 Python江湖地位 ?**
+
+从IEEE Spectrum 网站\[2\]上证实，Python已然是最流行的编程语言，有图为证。
+
+![](/images/csdn-python/333a73b371454e8ae1b9ef424b61608b.jpeg)
+
+  
+编程语言排名
+
+IEEE Spectrum网站（建议收藏[https://spectrum.ieee.org](https://link.zhihu.com/?target=https%3A//links.jianshu.com/go%3Fto%3Dhttps%253A%252F%252Fspectrum.ieee.org)）是行业的大拿，希望入门后各位汉子（包括女汉子）们能在它的期刊上发几篇论文，给自己的院士之路多添加几块砖。
+
+### **2 怎么盘她？**
+
+到底Python的功夫有多少？我们怎么盘她比较好呐？我们来细数一下，以下列出的应用都是非常成熟的应用。
+
+### **2.1 游戏开发**
+
+微软著名的“我的世界” Minecraft教育版（可运行在“树莓派”上）即mini版，提供了Python接口，据说部分代码是用Python编写的，可用Python来控制游戏的运行。使用Python来控制游戏当中的角色的动作、物品，编程创造游戏环境。
+
+PS: 如果你感兴趣，请在本文后留言，本系列结束后，将会重磅推出我的世界系列！
+
+[https://education.minecraft.net/](https://link.zhihu.com/?target=https%3A//links.jianshu.com/go%3Fto%3Dhttps%253A%252F%252Feducation.minecraft.net%252F)
+
+![](/images/csdn-python/e224eaa0d4df35071d9af18b3ea0e19b.jpeg)
+
+  
+使用Python构建环境
+
+著名的游戏 Sid Meier's Civilization就是使用 Python 开发的（文明4），游戏的引擎使用的还是C++，使用Python开发游戏的逻辑层。
+
+![](/images/csdn-python/466f748ba0e339e714ffc96dfdb05668.jpeg)
+
+本系列教程，将会涉及游戏的制作。需要使用到pygame游戏引擎，在这里牛粉们可以提前预习一下pygame网站。  
+[https://www.pygame.org/](https://link.zhihu.com/?target=https%3A//links.jianshu.com/go%3Fto%3Dhttps%253A%252F%252Fwww.pygame.org%252F)
+
+### **2.2 智能机器人**
+
+在智能设备方面，即使是运算性能比较弱的Arduino智能芯片也可以以多种方式使用Python,具体有如下两种：
+
+（1）使用Python编写“上位机”程序（即机器人的大脑）在电脑上运行程序控制设备
+
+（2）采购支持CircuitPython、MicroPython等芯片，像标准的C语言一样对微处理器直接进行编程，把程序直接写进芯片。
+
+类似于树莓派等那些可以运行linux系统的嵌入式设备，早已经可以运行Python。
+
+这是机器人学习的推荐网站，[https://mc.dfrobot.com.cn/](https://link.zhihu.com/?target=https%3A//links.jianshu.com/go%3Fto%3Dhttps%253A%252F%252Fmc.dfrobot.com.cn%252F)，很多中小学的机器人比赛都使用他家的零件，有兴趣可以好好研究。
+
+![](/images/csdn-python/3cc91e22b433ca1c10e7bd8d9e09fd05.jpeg)
+
+PS: 谁说python不能当汇编用
+
+### **2.3 爬虫和黑客**
+
+Python本身对于访问网络具有天然的优势，它有众多的组件用来把Python当成一个数据搬运工：
+
+（1）可以控制本机上浏览器实现模拟真人点击与访问（用来访问具有复杂Javascript程序的网站比如什么小游戏网页）
+
+（2）也可以直接使用http\\tcp\\ftp\\smtp等等互联网协议来直接访问一般的网页或是网络上的各种服务。在网上一找爬虫，又出来那么多辣人眼球的结果，百度，我只是一个单纯的孩子呀！
+
+![](/images/csdn-python/f76992f323573005f64be011af5d3b94.jpeg)
+
+  
+ 
+
+![](/images/csdn-python/f99fc5bd27ccbd298ae532effc8d2179.jpeg)
+
+####   
+**2.4 创建网站**
+
+小牛叔说：“不能光爬别人网站，分享才会让世界更美好！”，
+
+Python有众多建立网站的工具，django这套框架是以比利时的吉普赛爵士吉他手Django Reinhardt来命名的。创建网站只需要几个命令就可以搞定。[https://www.djangoproject.com/](https://link.zhihu.com/?target=https%3A//links.jianshu.com/go%3Fto%3Dhttps%253A%252F%252Fwww.djangoproject.com%252F) 以后估计是大家的常用工具，相信不久你就会拥有自己的网站。
+
+### **2.5 其它**
+
+python已经整合进入了linux系统并且成为了命令行的一部分。传说网易大部分网游都是Python写的，由于现在的游戏开发引擎基本上是外包或是使用成熟的引擎，游戏的逻辑层更加地重要。
+
+Python的被battle的最多的就是它的运行速度与效率，所以火箭、核电站、ICU呼吸机、大型3D游戏引擎等等类似的设备和应用不会使用它，基本上其它任何地方都有它的影子。
+
+目前看来，纯手机端使用python还非常少。不过，目前也有使用Python做手机App的组件，python Kivy就可以使用写同时运行于Window,Mac OS, IOS, Android平台的的基于GUI的程序，但是易用性也挺不错。
+
+### **3 她 的美**
+
+> 你在我心中是最美  
+> 只有相爱的人最能体会  
+> 你明了 我明了  
+> 这种美妙的滋味  
+> \-羽泉《最美》
+
+想到Python的美，小牛叔不襟吟唱起了90后最喜欢的这首歌... ...她有多美呢？
+
+在CSDN\[3\]（这是中国程序员经常交流的网站，建议收藏[https://blog.csdn.net/](https://link.zhihu.com/?target=https%3A//links.jianshu.com/go%3Fto%3Dhttps%253A%252F%252Fblog.csdn.net%252F)）的高人处拷贝了几行代码，进行了比较。
+
+Python的语句非常整齐的，拥有同样对齐（缩进）的语句，能明显看出来是“一伙的”。对！很高兴你学习到了编程的第1个知识点：代码块（ Code Block)。同一块中的代码要么一起被执行，要么因为条件判断或是循环不被执行。
+
+![](/images/csdn-python/96b59f379c9f10ebb11b1f59f660e1f0.jpeg)
+
+  
+**整齐的代码**
+
+而很多其它语言（Javascript、C#、 C、C++、Java等等）都是使用了成对的花括号作为代码块的标志，以分号作为语句结束的标志，我们来看看效果（好处是如果你是高手在写一个Windows操作系统，完全把上百万行的代码写成一行）：
+
+![](/images/csdn-python/aef0983d1de0484ac4fd80b3d0e54026.jpeg)
+
+  
+折磨初学者... ...
+
+传说1989年在一个夜黑风高的圣诞夜， Guido大叔在掰脚趾头算C语言花括号时，受到了ABC语言的启发，立刻就停止了抠Jo的动作，说了一句“F\*\*k 花括号!我要创造一个没有花括号的语言！”，就开始埋头使用C语言并且使用了海量的花括号来创造了Python！
+
+### **4 她 的实用**
+
+非诚勿扰的孟爷爷告诉过男嘉宾，勾搭的对象应该是这样子滴：小姐姐即要漂亮也得会持家过日子。python的程序漂亮极了，可实用么？
+
+我们看看C#（java可能代码更长)完成如下的任务的代码。
+
+> 任务：以POST方式向某网页提交数据（说大白话就是类似于模拟我们填用户名密码然后按提交按钮），并获得网站反馈。
+
+下面是C#的代码（14行），当然你可以首尾相接全写成1行，不过按分号算代码量还是按14行计薪酬（哦我放心了）。
+
+![](/images/csdn-python/e027e35ef8628cd37a513b04d2f50fe6.jpeg)
+
+  
+14行代码完成1个功能
+
+再来看看，这是Python的代码：
+
+![](/images/csdn-python/8a42df6d772cfe22f3809f74fa1a97e4.jpeg)
+
+  
+python完成任务只有1种方式，这也是Python语言近年完善升级的原则之一。
+
+我们从这位Guido老叔开始，也从他结束，欣赏一下他的艳照，感谢一下他给我们带来了“她”。
+
+![](/images/csdn-python/1b5d0f88496bd17acca400068ae4e2e9.jpeg)
+
+  
+看见他的T恤上写了什么中文么：
+
+## **★ 人生苦短 我用Python ★**
+
+**还不快跟随小牛叔脚步，入坑上车吧！**
+
+[下一篇：小牛叔讲Python第2章:安装配置Python编程环境](https://blog.csdn.net/dosboy5266/article/details/115054681)

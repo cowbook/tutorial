@@ -1,0 +1,145 @@
+---
+title: "小牛叔讲Python第12章：面向对象——类与实例（Class入门）"
+---
+
+> 本文由作者原文迁入，保留原文叙述与示例。内容发表于 2021–2022 年，软件版本和界面截图可能已过时，请以官方文档为准。
+> 原文：[CSDN 博客](https://blog.csdn.net/dosboy5266/article/details/122231512)
+
+[上一篇：小牛叔讲Python第11章:函数的高级用法以及匿名函数](https://blog.csdn.net/dosboy5266/article/details/120906861 "上一篇：小牛叔讲Python第11章:函数的高级用法以及匿名函数")
+
+下一篇：[小牛叔讲Python第13章:类Class中的各种变量类型](https://blog.csdn.net/dosboy5266/article/details/122506799 "小牛叔讲Python第13章:类Class中的各种变量类型")
+
+小牛叔用轻松有趣的故事，带你进入Python的编程世界。
+
+### 1、类
+
+提到类，大神们言必称封装。计算机中封装，即把围绕同一个对象相同的代码、数据整合在一起。在某段游戏代码中（比如熊猫厨房），有“面包”：
+
+1、游戏提供“烘烤”的操作。 -> 很明显这是动作 -> 类（面包类）的方法
+
+2、面包有硬度指数 -> 很明显这是数据 -> 类（面包类）的属性
+
+从一般情况看，“动作”可以通过编写函数完成，比如上面的“烧烤”，游戏可以通过函数绘制出烤箱烤面包的画面。“数据”就可以通过变量来保存值就行，比如上面的“硬度”，我们可以通过0-10的数字去表示。
+
+以上即包括函数又包括数据的结构，因为服务于同一个对象，集中写在一起就叫面向对象。
+
+![](/images/csdn-python/c94ba169127f05a4a82f637a5ada129d.png)
+
+这是小牛叔最喜欢吃的“烤面包”
+
+### 2、实例
+
+“实例”可以定义为“类‘的”值“，类相当于蓝本，实例相当于不同的个体。我们继续玩熊猫厨房的游戏，实际在游戏在运行的过程中，每个人的屏幕上都会出现“面包”，那些张三的面包、李四的面包就叫实例。实例不一定有相同的属性值比如“硬度”不同，但是却是共享着相同的属性名称与方法，是同一个蓝本里“刻”出来的。
+
+再比如，Python中所有的整数，其实都是int这个类的实例。
+
+Python系统当中大部分的东东都是类，我们之前学习的str-字符串，int-整数，其实都是不同的类，我们用type这个语句就可以查看某个实例是什么类。
+
+![](/images/csdn-python/e42f2c52d7bd54250305899bc5bfc90b.png)
+
+> **type语句 - 某个值（实例）是什么类**
+
+### 3、定义类
+
+在此分析"面包"的属性：
+
+*   slices：指使用了几片切片
+*   condiments：面包上配料的列表，比如番茄酱、芥末酱等
+*   cooked\_level：一个数字，通过这个属性知道面包被烤程度
+*   cooked\_string：一个字符串，描述面包烤出来的软硬程度
+
+再来分析一下面包的方法：
+
+*   cook()：把面包片烤一段时间，这会让面包比较硬容易抹黄油
+*   add\_slice()：加入一个切片
+*   add\_condiment()：加入一些配料
+
+#### 3.1 \_\_int\_\_() 初始化方法
+
+如下代码通过Python的赋值语句定义了类中的4个属性。 属性可以通过在类中定义\_\_init\_\_()函数来实现，\_\_init\_\_() 函数是Python类的初始化函数，系统生成实例时，会首先找类有没有定义这个函数，如果定义了就会执行这个函数。
+
+类中所有方法第1个参数比较特别，是self，指的就是实例本身。
+
+如下代码中，并且把实例传递到self这个实例中，并且设置默认属性。
+
+```python
+class bread:
+    def __init__(self):
+        self.cooked_level = 0
+        self.cooked_string = 'Soft'
+        self.condiments = []
+        self.slices = 1
+```
+
+如上的代码，self后紧跟的点号是引用实例的成员，如果不存在会被创建， 上述初始化方法当中，定义了一个没有经过烤时间为0，非常软并且没有任何酱料的1小片切片白面包。
+
+#### 3.2 定义其它方法
+
+下面我们定义“烤面包”类的方法，在Bread类的代码里继续创建函数cook，同样第1个参数self代表实例，第二参数代表烤的时间，函数的功能根据烹饪时间来设置面包的状态。
+
+```python
+class Bread:
+    def __init__(self):
+        self.cooked_level = 0
+        self.cooked_string = '软嫩'
+        self.condiments = []
+        self.slices = 1
+    def cook(self,time):
+        self.cooked_level += time
+        if self.cooked_level>=10:
+            self.cooked_string = '焦糊'
+        elif self.cooked_level>=8:
+            self.cooked_string = '硬脆'
+        elif self.cooked_level>=6:
+            self.cooked_string = '适中'
+        elif self.cooked_level>=3:
+            self.cooked_string = '稍软'
+        else:
+            self.cooked_string = '软嫩'
+```
+
+通过cook这个持续的动作，根据烤的时间来改变面包的软硬属性cooked\_string。
+
+假设游戏刚开始，Joe准备烤面包,  接着顶格写如下的代码：
+
+```python
+joeBread = Bread()
+print("烤时间",joeBread.cooked_level)
+print("切片数",joeBread.slices)
+print("口感",joeBread.cooked_string)
+print("配料",joeBread.condiments)
+```
+
+运行的结果如下：
+
+```cobol
+烤时间 0
+切片数 1
+口感 软嫩
+配料 []
+```
+
+*此外，还要注意到目前为止，定义类的时候目前均是采取首字母大写的方式，在Python代码约定当中，Word一般是作为类名，而word则是作为实例名称，这样通过观察变量或是类的名称，就知道所代表的意义。*
+
+然后再试试cook“烤”方法有没有效果，继续填加如下的语句：
+
+```python
+print('Joe开始烤8分钟')
+joeBread.cook(8)
+print("口感",joeBread.cooked_string)
+print("烤时间",joeBread.cooked_level)
+```
+
+这些语句的运行的结果如下图：
+
+```cobol
+Joe开始烤8分钟
+口感 硬脆
+烤时间 8
+```
+
+以上编写的cook() 方法可以正常工作，经验证面包被烤了8分钟后，不仅烤时发生了变化，而且面包的口味果然变成了“硬脆”的状态，顺便说一下，小牛叔可不喜欢吃硬的！
+
+### **\---小牛书0基础Python系列教程---**
+
+### **【每天1篇1周入门，请点击下方的喜欢和收藏，以备学习】**

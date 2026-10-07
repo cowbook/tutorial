@@ -1,0 +1,210 @@
+---
+title: "小牛叔讲Python第14章：讲清Class类的继承与实例（以王者为例）"
+---
+
+> 本文由作者原文迁入，保留原文叙述与示例。内容发表于 2021–2022 年，软件版本和界面截图可能已过时，请以官方文档为准。
+> 原文：[CSDN 博客](https://blog.csdn.net/dosboy5266/article/details/122616350)
+
+***小牛叔带你轻松飞越Python类的门槛***
+
+### 1\. 大话继承
+
+**继承最好的示例竟然是病毒复制**。COVID-19新冠病毒全球肆虐，其中德尔塔变种因更强的传播性引发了新一轮的疫情，连中国多个城市都没有能幸免。病毒复制变异的过程就是下一代继承**上一代部分特性**，并发展出**新特性**的过程（如下图）。
+
+![](/images/csdn-python/f9aad5e52d1a83b0ceb59c81ce02f06e.png)
+
+病毒的变异来源于DNA(RNA)蛋白质突变，因此编程中的继承，也具有如下两个特征：
+
+1.  **复制**上一代的特性（即属性与方法）
+2.  发展出**新特性**（即属性与方法）
+
+### 2\. 层次性与复用
+
+可以把类Class看成病毒（代码）的DNA，那么定义新的类（Class）就相当于产生了新病毒，而从类创建实例的过程，就类似于同病毒自我复制产生很多DNA相同的病毒体， 类的继承就相当于这个DNA在复制过程中产生了变异，产生了新的种类的病毒DNA或是病毒的变种的DNA的过程。
+
+“继承”过程在程序中通常必须由程序来手工的显式声明（当然也不排除能自我复制变异的程序存在:-) ），假设我们正在给类似于王者荣耀的游戏做NPC的角色，为了重复利用角色的特性，我们可以把各种角色以层次关系进行组织，图中每个节点都是类：
+
+![](/images/csdn-python/cdfea37fd25324277d5acd16ad3b65cc.png)
+
+游戏角色继承关系
+
+  
+在这样的继承关系里，所有的NPC都可以共享相同的底层逻辑：共享各种属性比如生命值，攻击能力（虽然个体值是不同，但是名称相同）；并且可以共享相同的行为（即方法）比如攻击，无论什么NPC攻击了就可以让对方减少生命值。
+
+看上图的第二层，小兵继承自NPC，并且可以发展出自己的特性给下一层的Class重复使用。比如小兵可以增加“行走”这个行为（即方法），这个方法可以让小兵沿着兵线路径进行移动，无论什么兵（只要从“小兵”派生出来的）都要（或是可以）共用这个行为。
+
+### 3\. 基本示例
+
+下面我们就要实现上图两个类: NPC和Soldier，其关系如下图所示：
+
+![](/images/csdn-python/e09e974ee5e19a5f6cc4f21f428c08a4.png)
+
+**蓝色是增加的特性、绿色是方法、红色是继承的特性。**
+
+类中的各元素的继承关系
+
+下面的代码实现上面的类的继承，先定义最基本的NPC类和Soldier类如下：
+
+```python
+class Npc:
+ 
+    def __init__(self,name):   #初始化方法 self（方法的第1个位置参数）代表这个类的实例
+        self.name = 'NPC' #初始名称为NPC
+        self.life = 100   #生命值初始为100
+        self.harm = 2     #伤害初始为2
+ 
+    def __str__(self):    #实例转成字符串时返回的字符串值
+        return '%s %d'%(self.name,self.life)  #返回这个类的实例时就打印名称和生命值
+ 
+    def attack(self,other): #攻击使别人生命值下降，把“别人”(other)当成参数传进来
+        print(self.name,'攻击',other.name,'-%d'%self.harm)
+        other.life -= self.harm
+ 
+ 
+class Soldier(Npc):
+    def __init__(self,name):
+        super().__init__(name)      #调用上层的初始化函数，使用父类的初始化代码
+        self.name = name            #士兵的名称
+```
+
+从Npc类的定义（参考前文介绍的类的定义）分析，明显可以看到这个类有3个属性分别是**life**（生命值）、**harm**(伤害力)和**name**（名称）并且有攻击行为（方法）。
+
+继承语法：子类士兵定义时直接在类名士兵(Soldier）后使用***括号***即可，该类没有产生新的属性，只是使用传入的名称覆盖了原来的***name***属性。大家注意如下的表达式：
+
+```python
+        super().__init__(name)          #调用上层的初始化函数，使用父类的初始化代码
+```
+
+表达式super()指的是父类的列表，这个语句就是调用父类Npc的初始化函数，这就显式地继承了NPC的3个属性：life（生命值）、harm(伤害力)和name（名称）。在其它情况下如果父类还有父类就会以MRO的顺序来排列。下面有文章是专门讲MRO的，可以参考：
+
+[岳星：Python super() 函数40 赞同 · 6 评论文章![icon-default.png?t=M0H8](/images/csdn-python/1fc6b4803b49cadf9324d711573ca394.png)https://zhuanlan.zhihu.com/p/28340924](https://zhuanlan.zhihu.com/p/28340924 "岳星：Python super() 函数40 赞同 · 6 评论文章")
+
+### 4.重用父类方法
+
+在上面Soldier类中没有定义attack（攻击）方法，而attack是定义在其父类Npc中的，那么我们可不可以直接在子类中使用呢？添加并运行如下的代码：
+
+```python
+soldier_a = Soldier('红方兵')  #实例化士兵a
+soldier_b = Soldier('蓝方兵')  #实例化士兵b
+soldier_a.attack(soldier_b)   #使用了父类attack的方法
+print(soldier_a,soldier_b)    #打印攻击的效果
+```
+
+上述代码在游戏当中产生了红蓝两方的士兵，并且通过初始化方法传入了名称，并且通过实例调用了attack方法，如果这个方法起作用的话，那么其中被攻击的蓝方兵应该生命值下降。把整个程序一起运行，看到如下的结果：
+
+> 红方兵 攻击 蓝方兵 -2  
+> 红方兵 100 蓝方兵 98
+
+可以看到无需要任何设置，子类可以直接使用父类的方法，但是子类必须通过重构\_\_*init()*\_\_这个函数，并且在函数中使用super()方法来，创建父类通过\_*init()*\_\_创建的实例属性。
+
+### 5\. 重构其它方法
+
+Soldier子类完全重用了父类的attack方法，实际上也重构了父类的\_\_*init()*\_\_函数，以获得父类的属性。你作为游戏设计者，觉得这种“攻击”太普通了，想设计更酷炫的“攻击”，这就需要通过重构attack方法，来增加新的特性。
+
+为了让读者更加了解方法的重构，我们假设“超级兵”自带“反甲”，即在受到攻击时自己受伤的同时，会让对方损失生命值。我们通过继承Soldier类来看看这个“超级兵”的attack怎么写？从NPC -> 兵 -> 超级兵 ，继承的关系如下图：
+
+![](/images/csdn-python/af9111ee2186ca545f859d7a7c09e145.png)
+
+**蓝色是增加的特性、绿色是方法、红色是继承的特性。**
+
+多级继承类中各元素的继承关系
+
+继续添加并运行如下的代码：
+
+```python
+class SuperSoldier(Soldier):
+    def __init__(self,name):
+        self.armHarm = 1                 #反甲伤害
+        super().__init__(name)           #调用上层的初始化函数，使用父类的初始化代码
+    
+    def attack(self,other):
+        super().attack(other)        #调用上层的攻击函数，重用父类的普通攻击行为
+        if other.armHarm:
+            self.life -= other.armHarm
+            print(other.name, '有反甲受伤:',other.armHarm)
+ 
+super_a = SuperSoldier('超级兵A')  #实例化带反甲的超级兵
+super_b = SuperSoldier('超级兵B')  #实例化带反甲的超级兵
+super_b.attack(super_a)           #超级B攻击A
+print(super_a,super_b)   
+```
+
+上述代码给超级兵增加了反甲伤害的属性，并且重写了attack代码，运行后，结果如下：
+
+```less
+超级兵B 攻击 超级兵A -2
+超级兵A 有反甲受伤: 1
+超级兵A 98 超级兵B 99
+```
+
+可以看出超级兵B虽然攻击了A但是自己也受了1点的伤害。通过在类中对父类定义的函数进行重构，并且结合super()函数，我们即可以重用老特性也可以为下一代增加新特性。
+
+### 6\. 多类继承
+
+多类继承即有多个父类，这样就可以综合多个类的特性。 在王者里，已方战胜大龙，在我方兵线里会产生一种生物叫主宰先锋，如下所示它即有着兵的通常属性比如走路路线、生命值、攻击力，也有着龙（野怪）的喷火攻击方式。
+
+![](/images/csdn-python/3d12c37bdc5ec9dae098b7981488d413.png)
+
+多类继承能实现合体的效果
+
+新建文件，复制粘贴下面全部的代码：
+
+```python
+class Npc:
+ 
+    def __init__(self,name):   #初始化方法 self（方法的第1个位置参数）代表这个类的实例
+        self.name = 'NPC' #初始名称为NPC
+        self.life = 100   #生命值初始为100
+        self.harm = 2     #伤害初始为2
+ 
+    def __str__(self):    #实例转成字符串时返回的字符串值
+        return '%s %d'%(self.name,self.life)  #返回这个类的实例时就打印名称和生命值
+ 
+    def attack(self,other): #攻击使别人生命值下降，把“别人”(other)当成参数传进来
+        print(self.name,'攻击',other.name,'-%d'%self.harm)
+        other.life -= self.harm
+ 
+ 
+class Soldier(Npc):
+    def __init__(self,name):
+        super().__init__(name)          #调用上层的初始化函数，使用父类的初始化代码
+        self.name = name            #士兵的名称
+    
+    def move(self):
+        print(self.name,'走路','.'*20)  #用打出一个点代表移动
+ 
+class Beast(Npc):
+    def __init__(self,name):
+        super().__init__(name)          #调用上层的初始化函数，使用父类的初始化代码
+        self.name = name
+ 
+    def fire(self):
+        print(self.name,'喷火','*'*20)
+ 
+ 
+class Pioneer(Soldier,Beast):
+    def __init__(self,name):
+        super().__init__(name)          #调用上层的初始化函数，使用父类的初始化代码
+ 
+ 
+p = Pioneer('主宰先锋1')
+print(p)
+p.move()
+p.fire()
+```
+
+运行之后看到运行结果：
+
+```cobol
+主宰先锋1 100
+主宰先锋1 走路 ....................
+主宰先锋1 喷火 ********************
+```
+
+通过继承两个类，这个主宰先锋即有了走路的功能(只在父类Soldier中有定义），也有了喷火的功能（只在父类Beast中有定义），并且具有最原始的NPC的各种属性。
+
+以上就是本篇类对象继承的内容，类的最核心的概念还是复用，一般高手写程序时都是从最抽象的类的开始写，把最容易共用的代码先写好，自顶向下的写程序。
+
+小牛叔写文画画都不易，记得点赞。
+
+**本节的继承，如果您看得开心，记得分享给其它同学哦。**
